@@ -1,0 +1,166 @@
+<div>
+    {%- comment -%}
+    {% capture media_layout %}
+        <div class="image">
+            {% if section.settings.image != blank %}
+                <noscript>
+                    {{ section.settings.image | img_url: '200x200' | img_tag: section.settings.image.alt, 'feature-row__image-no-js' }}
+                </noscript>
+                <div class="feature-row__image-wrapper" style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100}}%;">
+                    {% assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+                    <img class="feature-row__image lazyload" src="{{ section.settings.image | img_url: '300x300' }}" data-sizes="auto" alt="{{ section.settings.image.alt | escape }}">
+                </div>
+            {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endif %}
+        </div>
+    {% endcapture %}
+    {%- endcomment -%}
+    {% if section.settings.text != blank %}
+        <div class="wrapper">
+            <div class="page-width feature-row">
+                <div class="feature-row flex-column">
+                    <div class="feature-row__text">
+                        <h2 class="h3 rte-setting featured-row__subtext text-center">{{ section.settings.text }}</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    <div class="separator"></div>
+    <div class="wrapper">
+        <div class="feature-row margin-vertical-small">
+
+            {%- for block in section.blocks -%}                
+                <img class="lazyload" 
+                    src="{{ block.settings.logo | img_url: '150x' }}" 
+                    alt="{{ block.settings.logo.alt | escape }}">
+            {%- endfor -%}
+        </div>
+    </div>
+    <div class="separator margin-bottom-small"></div>
+</div>
+
+{% schema %}
+
+{
+    "name": {
+        "cs": "Featured brands",
+        "da": "Featured brands",
+        "de": "Featured brands",
+        "en": "Featured brands",
+        "es": "Marcas aliadas",
+        "fi": "Featured brands",
+        "fr": "Featured brands",
+        "it": "Featured brands",
+        "ja": "Featured brands",
+        "ko": "Featured brands",
+        "nb": "Featured brands",
+        "nl": "Featured brands",
+        "pl": "Featured brands",
+        "pt-BR": "Featured brands",
+        "pt-PT": "Featured brands",
+        "sv": "Featured brands",
+        "th": "Featured brands",
+        "tr": "Featured brands",
+        "vi": "Featured brands",
+        "zh-CN": "Featured brands",
+        "zh-TW": "Featured brands"
+    },
+    "settings": [
+        {
+            "type": "richtext",
+            "id": "text",
+            "label": {
+                "cs": "Text",
+                "da": "Tekst",
+                "de": "Text",
+                "en": "Text",
+                "es": "texto",
+                "fi": "Teksti",
+                "fr": "Texte",
+                "it": "Testo",
+                "ja": "テキスト",
+                "ko": "텍스트",
+                "nb": "Tekst",
+                "nl": "Tekst",
+                "pl": "Tekst",
+                "pt-BR": "Texto",
+                "pt-PT": "Texto",
+                "sv": "Text",
+                "th": "ข้อความ",
+                "tr": "Metin",
+                "vi": "Văn bản",
+                "zh-CN": "文本",
+                "zh-TW": "文字"
+            },
+            "default": "<p>Aliados de las mejores marcas.</p>"
+        }
+    ],
+    "presets": [
+        {
+            "name": {
+                "cs": "Featured brands",
+                "da": "Featured brands",
+                "de": "Featured brands",
+                "en": "Featured brands",
+                "es": "Marcas aliadas",
+                "fi": "Featured brands",
+                "fr": "Featured brands",
+                "it": "Featured brands",
+                "ja": "Featured brands",
+                "ko": "Featured brands",
+                "nb": "Featured brands",
+                "nl": "Featured brands",
+                "pl": "Featured brands",
+                "pt-BR": "Featured brands",
+                "pt-PT": "Featured brands",
+                "sv": "Featured brands",
+                "th": "Featured brands",
+                "tr": "Featured brands",
+                "vi": "Featured brands",
+                "zh-CN": "Featured brands",
+                "zh-TW": "Featured brands"
+            },
+            "category": {
+                "cs": "Obrázek",
+                "da": "Billede",
+                "de": "Foto",
+                "en": "Collection",
+                "es": "Colección",
+                "fi": "Kuva",
+                "fr": "Image",
+                "it": "Immagine",
+                "ja": "画像",
+                "ko": "이미지",
+                "nb": "Bilde",
+                "nl": "Afbeelding",
+                "pl": "Obraz",
+                "pt-BR": "Imagem",
+                "pt-PT": "Imagem",
+                "sv": "Bild",
+                "th": "รูปภาพ",
+                "tr": "Görsel",
+                "vi": "Hình ảnh",
+                "zh-CN": "图片",
+                "zh-TW": "圖片"
+            }
+        }
+    ],
+    "max_blocks": 5,
+    "blocks": [
+        {
+            "type": "logo",
+            "name": "Logo",
+            "settings": [
+                {
+                    "id": "logo",
+                    "type": "image_picker",
+                    "label": "Logo"
+                }
+            ]
+        }
+    ]
+}
+
+{% endschema %} 

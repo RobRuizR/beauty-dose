@@ -384,6 +384,7 @@ $section-spacing-small: 35px;
 $gridGutter: 30px; // can be a %, but nested grids will have smaller margins because of it
 $contentTopMargin: 80px;
 $contentTopMarginSmall: 35px;
+$marginSmall: 35px;
 $radius: 0;
 $customSelectHeight: 46px;
 
@@ -1899,14 +1900,6 @@ $shareCountBg: $colorBody;
       margin-top: 110px;
     }
   }
-
-  .shopify-section {
-    margin-top: $gutter * 3;
-
-    @include at-query($max, $medium) {
-      margin-top: $gutter * 1.5;
-    }
-  }
 }
 
 .index-slideshow-section,
@@ -1977,6 +1970,10 @@ $shareCountBg: $colorBody;
 
 .feature-row__item {
   @include flex(0 1 50%);
+
+  &.image {
+    @include flex(0 1 40%);
+  }
 
   @include at-query($max, $medium) {
     @include flex(1 1 100%);
@@ -4793,5 +4790,30 @@ $disclosure-list-large: 1100px;
     justify-content: space-between;
     width: 100%;
   }
+}
+
+.text-center {
+  text-align: center
+}
+
+.flex-center {
+  align-items: center;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.margin-bottom-small {
+  margin-bottom: $marginSmall;
+}
+
+.margin-vertical-small {
+  margin: $marginSmall 0;
+}
+
+.separator {
+  border-bottom: 1px $colorHeadings solid;
+  width: 100%;
 }
 
