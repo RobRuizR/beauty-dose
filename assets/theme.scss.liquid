@@ -385,6 +385,7 @@ $gridGutter: 30px; // can be a %, but nested grids will have smaller margins bec
 $contentTopMargin: 80px;
 $contentTopMarginSmall: 35px;
 $marginSmall: 35px;
+$marginXsmall: 18px;
 $radius: 0;
 $customSelectHeight: 46px;
 
@@ -1766,6 +1767,9 @@ $shareCountBg: $colorBody;
 
   .icon {
     padding: 0 5px 0 10px;
+    border-radius: 2em;
+    background-color: #D6514D;
+    color: red;
 
     &:before {
       line-height: $shareButtonHeight;
@@ -2879,6 +2883,8 @@ $slick-dot-character: '\2022';
 .site-nav__link {
   @include accentFontStack;
   @include transition(color 0.2s);
+  text-transform: none;
+  font-weight: bold;
   font-size: em(14px);
 }
 
@@ -3650,6 +3656,13 @@ button.mfp-arrow {
     &.small--one-half {
       @include flex(1 0 50%);
       max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &.small--one-quarter {
+      @include flex(1 0 25%);
+      max-width: 200px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -4792,6 +4805,10 @@ $disclosure-list-large: 1100px;
   }
 }
 
+.flex {
+  display: flex;
+}
+
 .text-center {
   text-align: center
 }
@@ -4808,8 +4825,16 @@ $disclosure-list-large: 1100px;
   margin-bottom: $marginSmall;
 }
 
+.margin-bottom-xsmall {
+  margin-bottom: $marginXsmall;
+}
+
 .margin-vertical-small {
   margin: $marginSmall 0;
+}
+
+.padding-vertical-small {
+  padding: $marginSmall 0;
 }
 
 .separator {
@@ -4817,3 +4842,14 @@ $disclosure-list-large: 1100px;
   width: 100%;
 }
 
+.row-responsive {
+  flex-direction: column;
+
+  @include at-query($min, $small) {
+    flex-direction: row;
+  }
+}
+
+.bold {
+  font-weight: bold;
+}
