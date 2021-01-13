@@ -386,6 +386,7 @@ $contentTopMargin: 80px;
 $contentTopMarginSmall: 35px;
 $marginSmall: 35px;
 $marginXsmall: 18px;
+$marginXxsmall: 9px;
 $radius: 0;
 $customSelectHeight: 46px;
 
@@ -4818,6 +4819,14 @@ $disclosure-list-large: 1100px;
   align-items: center;
 }
 
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
 .flex-column {
   flex-direction: column;
 }
@@ -4873,9 +4882,46 @@ $disclosure-list-large: 1100px;
 $shadow: 0px 3px 6px rgba(0, 0, 0, .29);
 
 .small-radius {
-  radius: 5px;
+  border-radius: 5px;
 }
 
 .shadow {
   box-shadow: $shadow;
+}
+
+.margin-xxsmall {
+  margin: $marginXxsmall;
+}
+
+.margin-right-xxsmall {
+  margin-right: $marginXxsmall;
+}
+
+.social-card.social-card {
+  overflow: hidden;
+  max-width: 250px;
+  margin: $marginSmall $marginXxsmall;
+
+  .user-img {
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+
+    > img {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  
+  .user-thumbnail {
+    overflow: hidden;
+    width: 52px;
+    height: 52px;
+    border-radius: 20px;
+    
+    > img {
+      object-fit: cover;
+      width: 90%;
+    }
+  }
 }

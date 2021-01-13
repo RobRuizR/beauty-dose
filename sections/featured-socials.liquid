@@ -1,27 +1,52 @@
-<div>
-    {% if section.settings.text != blank %}
-        <div class="wrapper">
+<div class="padding-vertical-small" style="background-color: {{ section.settings.background_color }};">
+    <div class="wrapper">
+        {% if section.settings.handle != blank %}
             <div class="page-width feature-row">
                 <div class="feature-row flex-column">
-                    <div class="feature-row__text">
-                        <h2 class="h3 rte-setting featured-row__subtext text-center">{{ section.settings.text }}</h2>
-                    </div>
+                    <p class="rte-setting featured-row__subtext text-center" style="color: rgba(214, 81, 77, 1); font-weight: semibold;">{{ section.settings.handle | escape }}</p>
                 </div>
             </div>
-        </div>
-    {% endif %}
-    <div class="separator"></div>
-    <div class="wrapper">
-        <div class="feature-row margin-vertical-small">
+        {% endif %}
+        {% if section.settings.text != blank %}
+            <div class="page-width feature-row">
+                <div class="feature-row flex-column">
+                    <h2 class="h2 rte-setting featured-row__subtext text-center">{{ section.settings.text | escape }}</h2>
+                </div>
+            </div>
+        {% endif %}
 
-            {%- for block in section.blocks -%}                
-                <img class="lazyload" 
-                    src="{{ block.settings.logo | img_url: '150x' }}" 
-                    alt="{{ block.settings.logo.alt | escape }}">
-            {%- endfor -%}
+        {% if section.settings.subtitle != blank %}
+            <div class="page-width feature-row">
+                <div class="feature-row flex-column">
+                    <p class="rte-setting featured-row__subtext text-center" style="color: rgba(101, 80, 75, 1);">{{ section.settings.subtitle | escape }}</p>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    <div class="feature-row margin-vertical-small page-width">
+        <div class="social-cards-container feature-row splide" id="splide">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    {%- for block in section.blocks -%}
+                        <div class="social-card small-radius shadow splide__slide">
+                            <div class="flex flex-center user-img">
+                                <img class="lazyload" src="{{ block.settings.thumbnail | img_url: '250x250', crop: 'center' }}" alt="{{ block.settings.thumbnail.alt | escape }}">
+                            </div>
+                            <div class="flex margin-xxsmall">
+                                <div class="user-thumbnail margin-right-xxsmall flex flex-center">
+                                    <img class="lazyload" src="{{ block.settings.user_photo | img_url: '52x52', crop: 'center' }}" alt="{{ block.settings.user_photo.alt | escape }}">
+                                </div>
+                                <div class="flex-column flex">
+                                    <div>{{ block.settings.name | escape }}</div>
+                                    <div>{{ block.settings.username | escape }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    {%- endfor -%}
+                </ul>
+            </div>
         </div>
     </div>
-    <div class="separator margin-bottom-small"></div>
 </div>
 
 {% schema %}
@@ -52,14 +77,14 @@
     },
     "settings": [
         {
-            "type": "richtext",
-            "id": "text",
+            "type": "text",
+            "id": "handle",
             "label": {
                 "cs": "Text",
                 "da": "Tekst",
                 "de": "Text",
-                "en": "Text",
-                "es": "texto",
+                "en": "Social network handle",
+                "es": "Usuario de Red social",
                 "fi": "Teksti",
                 "fr": "Texte",
                 "it": "Testo",
@@ -77,7 +102,88 @@
                 "zh-CN": "文本",
                 "zh-TW": "文字"
             },
-            "default": "<p>Aliados de las mejores marcas.</p>"
+            "default": "@beautydosemx"
+        }, {
+            "type": "text",
+            "id": "text",
+            "label": {
+                "cs": "Text",
+                "da": "Tekst",
+                "de": "Text",
+                "en": "Title",
+                "es": "Título",
+                "fi": "Teksti",
+                "fr": "Texte",
+                "it": "Testo",
+                "ja": "テキスト",
+                "ko": "텍스트",
+                "nb": "Tekst",
+                "nl": "Tekst",
+                "pl": "Tekst",
+                "pt-BR": "Texto",
+                "pt-PT": "Texto",
+                "sv": "Text",
+                "th": "ข้อความ",
+                "tr": "Metin",
+                "vi": "Văn bản",
+                "zh-CN": "文本",
+                "zh-TW": "文字"
+            },
+            "default": "Let's be friends."
+        }, {
+            "type": "text",
+            "id": "subtitle",
+            "label": {
+                "cs": "Text",
+                "da": "Tekst",
+                "de": "Text",
+                "en": "Subtitle",
+                "es": "Subtítulo",
+                "fi": "Teksti",
+                "fr": "Texte",
+                "it": "Testo",
+                "ja": "テキスト",
+                "ko": "텍스트",
+                "nb": "Tekst",
+                "nl": "Tekst",
+                "pl": "Tekst",
+                "pt-BR": "Texto",
+                "pt-PT": "Texto",
+                "sv": "Text",
+                "th": "ข้อความ",
+                "tr": "Metin",
+                "vi": "Văn bản",
+                "zh-CN": "文本",
+                "zh-TW": "文字"
+            },
+            "default": "Comparte tu look #beautydosemx"
+        }, {
+            "type": "color",
+            "id": "background_color",
+            "label": {
+                "cs": "Text",
+                "da": "Tekst",
+                "de": "Text",
+                "en": "Background color",
+                "es": "Color de fondo",
+                "fi": "Teksti",
+                "fr": "Texte",
+                "it": "Testo",
+                "ja": "テキスト",
+                "ko": "텍스트",
+                "nb": "Tekst",
+                "nl": "Tekst",
+                "pl": "Tekst",
+                "pt-BR": "Texto",
+                "pt-PT": "Texto",
+                "sv": "Text",
+                "th": "ข้อความ",
+                "tr": "Metin",
+                "vi": "Văn bản",
+                "zh-CN": "文本",
+                "zh-TW": "文字"
+            },
+            "default": "#fefaf7"
         }
     ],
     "presets": [
@@ -130,16 +236,27 @@
             }
         }
     ],
-    "max_blocks": 5,
     "blocks": [
         {
-            "type": "logo",
-            "name": "Logo",
+            "type": "user_post",
+            "name": "Post",
             "settings": [
                 {
-                    "id": "logo",
+                    "id": "thumbnail",
                     "type": "image_picker",
-                    "label": "Logo"
+                    "label": "Thumbnail"
+                }, {
+                    "id": "user_photo",
+                    "type": "image_picker",
+                    "label": "Foto de usuario"
+                }, {
+                    "id": "name",
+                    "type": "text",
+                    "label": "Name"
+                }, {
+                    "id": "username",
+                    "type": "text",
+                    "label": "Username"
                 }
             ]
         }
