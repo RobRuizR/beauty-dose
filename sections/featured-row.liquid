@@ -22,15 +22,15 @@
                     {{ media_layout }}
                 {% endif %}
 
-                <div class="feature-row__item feature-row__text feature-row__text--{{ section.settings.layout }}">
+                <div class="feature-row__item feature-row__text feature-row__text--{{ section.settings.layout }} flex flex-column flex-center">
                     {% if section.settings.title != blank %}
-                        <h2 class="h3">{{ section.settings.title | escape }}</h2>
+                        <h2 class="h3 text-center">{{ section.settings.title | escape }}</h2>
                     {% endif %}
                     {% if section.settings.text != blank %}
-                        <div class="rte-setting featured-row__subtext">{{ section.settings.text }}</div>
+                        <div class="rte-setting featured-row__subtext text-center">{{ section.settings.text }}</div>
                     {% endif %}
                     {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-                        <a href="{{ section.settings.button_link }}" class="btn">
+                        <a href="{{ section.settings.button_link }}" class="btn button-secondary button-stretch">
                             {{ section.settings.button_label | escape }}
                         </a>
                     {% endif %}

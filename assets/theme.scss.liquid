@@ -1537,6 +1537,7 @@ a {
 .btn,
 .btn--secondary {
   @include accentFontStack;
+  border-radius: 6px;
   padding: 12px 20px;
   font-size: em(13px);
 }
@@ -4852,4 +4853,19 @@ $disclosure-list-large: 1100px;
 
 .bold {
   font-weight: bold;
+}
+
+.button-secondary {
+  border: 3px solid #D6514D;
+  color: #D6514D;
+  border-radius: 6px;
+  background: transparent;
+
+  :hover {
+    color: white;
+  }
+}
+
+.button-stretch {
+  padding: 15px 86px;
 }
