@@ -1978,7 +1978,11 @@ $shareCountBg: $colorBody;
   @include flex(0 1 50%);
 
   &.image {
-    @include flex(0 1 40%);
+    @include flex(1 1 100%);
+    
+    @include at-query($min, $medium) {
+      @include flex(0 1 40%);
+    }
   }
 
   @include at-query($max, $medium) {
@@ -4819,6 +4823,14 @@ $disclosure-list-large: 1100px;
   align-items: center;
 }
 
+.flex-end {
+  align-items: flex-end;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
 .align-center {
   align-items: center;
 }
@@ -4847,6 +4859,22 @@ $disclosure-list-large: 1100px;
   padding: $marginSmall 0;
 }
 
+.medium-padding-xsmall-bottom {
+  padding-bottom: $marginXsmall;
+
+  @include at-query($min, $medium) {
+    padding-bottom: none;
+  }
+}
+
+.medium-padding-horizontal-xsmall {
+  padding: 0 $marginXsmall;
+
+  @include at-query($min, $medium) {
+    padding: none;
+  }
+}
+
 .separator {
   border-bottom: 1px $colorHeadings solid;
   width: 100%;
@@ -4856,6 +4884,14 @@ $disclosure-list-large: 1100px;
   flex-direction: column;
 
   @include at-query($min, $small) {
+    flex-direction: row;
+  }
+}
+
+.medium-row-responsive {
+  flex-direction: column;
+
+  @include at-query($min, $medium) {
     flex-direction: row;
   }
 }
@@ -4893,9 +4929,27 @@ $shadow: 0px 3px 6px rgba(0, 0, 0, .29);
   margin: $marginXxsmall;
 }
 
+.margin-xxsmall-bottom {
+  margin-bottom: $marginXxsmall;
+}
+
+.margin-xsmall-bottom {
+  margin-bottom: $marginXsmall;
+}
+
+.medium-margin-xsmall-bottom {
+  margin-bottom: $marginXsmall;
+
+  @include at-query($min, $medium) {
+    margin-bottom: none;
+  }
+}
+
 .margin-right-xxsmall {
   margin-right: $marginXxsmall;
 }
+
+
 
 .social-card.social-card {
   overflow: hidden;
@@ -4924,4 +4978,26 @@ $shadow: 0px 3px 6px rgba(0, 0, 0, .29);
       width: 90%;
     }
   }
+}
+
+.color-main.color-main {
+  color: $colorPrimary;
+}
+
+.benefit-item {
+  flex: 1;
+  width: 100%;
+
+  @include at-query($min, $medium) {
+    flex: 0 1 30%;
+    width: initial;
+  }
+}
+
+.hide-overflow {
+  overflow: hidden;
+}
+
+.medium-radius {
+  border-radius: 10px;
 }

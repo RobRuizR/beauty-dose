@@ -1,0 +1,99 @@
+<div style="background-color: #F5C7A6;" class="padding-vertical-small">
+
+  <div class="wrapper padding-vertical-small">
+    <div class="margin-bottom-small medium-padding-horizontal-xsmall">
+      {% if section.settings.title != blank %}
+        <h2 class="h3 text-center">{{ section.settings.title | escape }}</h2>
+      {% endif %}
+      {% if section.settings.subtext != blank %}
+        <div class="rte-setting featured-row__subtext text-center">{{ section.settings.subtext }}</div>
+      {% endif %}
+    </div>
+    <div class="feature-row medium-padding-horizontal-xsmall">
+      <div class="feature-row__item feature-row__text feature-row__text--left flex flex-column">
+        {% if section.settings.person_name != blank %}
+          <div class="h5 color-main">{{ section.settings.person_name | escape }}</div>
+        {% endif %}
+        {% if section.settings.person_quote != blank %}
+          <div class="rte-setting featured-row__subperson_quote">{{ section.settings.person_quote }}</div>
+        {% endif %}
+      </div>
+      <div class="feature-row__item image">
+        {% if section.settings.image != blank %}
+          <noscript>
+            {{ section.settings.image | img_url: '600x600' | img_tag: section.settings.image.alt, 'feature-row__image-no-js' }}
+          </noscript>
+          <div class="feature-row__image-wrapper" style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100}}%;">
+            {% assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+            <img class="feature-row__image lazyload" src="{{ section.settings.image | img_url: '600x300', crop: 'center' }}" data-src="{{ img_url }}" data-widths="[360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]" data-aspectratio="{{ section.settings.image.aspect_ratio }}" data-sizes="auto" alt="{{ section.settings.image.alt | escape }}">
+          </div>
+        {% else %}
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+
+{
+  "name": "Social Tips",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": {
+        "cs": "Nadpis",
+        "da": "Overskrift",
+        "de": "Überschrift",
+        "en": "Heading",
+        "es": "Título",
+        "fi": "Otsake",
+        "fr": "Titre",
+        "it": "Heading",
+        "ja": "見出し",
+        "ko": "제목",
+        "nb": "Overskrift",
+        "nl": "Kop",
+        "pl": "Nagłówek",
+        "pt-BR": "Título",
+        "pt-PT": "Título",
+        "sv": "Rubrik",
+        "th": "ส่วนหัว",
+        "tr": "Başlık",
+        "vi": "Tiêu đề",
+        "zh-CN": "标题",
+        "zh-TW": "標題"
+      },
+      "default": "Yes, You Can Totally Rock Your Products: Here’s How"
+    }, {
+      "type": "text",
+      "id": "subtext",
+      "label": "Subtítulo",
+      "default": "¡No te pierdas estos increíbles tips!"
+    }, {
+      "type": "text",
+      "id": "person_name",
+      "label": "Nombre",
+      "default": "Georgina"
+    }, {
+      "type": "text",
+      "id": "person_quote",
+      "label": "Frase de usuario",
+      "default": "Probar productos de belleza jamás había sido tan divertido."
+    }, {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tips",
+      "category": "Socials"
+    }
+  ]
+}
+
+{% endschema %}

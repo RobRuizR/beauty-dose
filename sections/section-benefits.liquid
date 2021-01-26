@@ -1,0 +1,154 @@
+<div class="padding-vertical-small" style="background-color: #fdf5ef;">
+  <div class="wrapper padding-vertical-small">
+    <div class="margin-bottom-small">
+      {% if section.settings.subtitle != blank %}
+        <div class="text-center bold color-main">{{ section.settings.subtitle | escape }}</div>
+      {% endif %}
+      {% if section.settings.title != blank %}
+        <h2 class="h3 text-center">{{ section.settings.title | escape }}</h2>
+      {% endif %}
+      {% if section.settings.subtext != blank %}
+        <div class="rte-setting featured-row__subtext text-center">{{ section.settings.subtext }}</div>
+      {% endif %}
+    </div>
+    <div class="feature-row row-responsive">
+      <div class="flex flex-column benefit-item medium-padding-horizontal-xsmall">
+        <div class="feature-row__item medium-radius hide-overflow image margin-xsmall-bottom">
+          {% if section.settings.image != blank %}
+            <noscript>
+              {{ section.settings.image | img_url: '600x600' | img_tag: section.settings.image.alt, 'feature-row__image-no-js' }}
+            </noscript>
+            <div class="feature-row__image-wrapper" style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100}}%;">
+              {% assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+              <img class="feature-row__image lazyload" src="{{ section.settings.image_1 | img_url: '400x300', crop: 'center' }}" data-src="{{ img_url }}" data-widths="[360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]" data-aspectratio="{{ section.settings.image.aspect_ratio }}" data-sizes="auto" alt="{{ section.settings.image.alt | escape }}">
+            </div>
+          {% else %}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% endif %}
+        </div>
+        <div class="bold color-main text-center">
+          {{ section.settings.name_1 | escape }}
+        </div>
+        <div class="h5 text-center">
+          {{ section.settings.description_1 | escape }}
+        </div>
+      </div>
+      <div class="flex flex-column benefit-item medium-padding-horizontal-xsmall">
+        <div class="feature-row__item medium-radius hide-overflow image margin-xsmall-bottom">
+          {% if section.settings.image != blank %}
+            <noscript>
+              {{ section.settings.image | img_url: '600x600' | img_tag: section.settings.image.alt, 'feature-row__image-no-js' }}
+            </noscript>
+            <div class="feature-row__image-wrapper" style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100}}%;">
+              {% assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+              <img class="feature-row__image lazyload" src="{{ section.settings.image_2 | img_url: '400x300', crop: 'center' }}" data-src="{{ img_url }}" data-widths="[360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]" data-aspectratio="{{ section.settings.image.aspect_ratio }}" data-sizes="auto" alt="{{ section.settings.image.alt | escape }}">
+            </div>
+          {% else %}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% endif %}
+        </div>
+        <div class="bold color-main text-center">
+          {{ section.settings.name_2 | escape }}
+        </div>
+        <div class="h5 text-center">
+          {{ section.settings.description_2 | escape }}
+        </div>
+      </div>
+      <div class="flex flex-column benefit-item medium-padding-horizontal-xsmall">
+        <div class="feature-row__item medium-radius hide-overflow image margin-xsmall-bottom">
+          {% if section.settings.image != blank %}
+            <noscript>
+              {{ section.settings.image | img_url: '600x600' | img_tag: section.settings.image.alt, 'feature-row__image-no-js' }}
+            </noscript>
+            <div class="feature-row__image-wrapper" style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100}}%;">
+              {% assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+              <img class="feature-row__image lazyload" src="{{ section.settings.image_3 | img_url: '400x300', crop: 'center' }}" data-src="{{ img_url }}" data-widths="[360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]" data-aspectratio="{{ section.settings.image.aspect_ratio }}" data-sizes="auto" alt="{{ section.settings.image.alt | escape }}">
+            </div>
+          {% else %}
+            {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% endif %}
+        </div>
+        <div class="bold color-main text-center">
+          {{ section.settings.name_3 | escape }}
+        </div>
+        <div class="h5 text-center">
+          {{ section.settings.description_3 | escape }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+
+{
+  "name": "Benefits",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "BENEFITS"
+    }, {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "¡Descúbrelos, los amarás!"
+    }, {
+      "type": "text",
+      "id": "subtext",
+      "label": "Subtexto",
+      "default": "Vive la experiencia Beauty Dose y conoce los beneficios de tu suscripción mensual."
+    }, {
+      "type": "text",
+      "id": "name_1",
+      "label": "Beneficio 1",
+      "default": "CÓMODO"
+    }, {
+      "type": "text",
+      "id": "description_1",
+      "label": "Descripción 1",
+      "default": "Pruébalo en la comodidad de tu casa."
+    }, {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Imagen"
+    }, {
+      "type": "text",
+      "id": "name_2",
+      "label": "Beneficio 2",
+      "default": "TIEMPO"
+    }, {
+      "type": "text",
+      "id": "description_2",
+      "label": "Descripción 2",
+      "default": "No pierdas el tiempo eligiendo, lo hacemos por ti."
+    }, {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Imagen"
+    }, {
+      "type": "text",
+      "id": "name_3",
+      "label": "Beneficio 3",
+      "default": "TIPS"
+    }, {
+      "type": "text",
+      "id": "description_3",
+      "label": "Descripción 3",
+      "default": "Tips para aplicar tus productos."
+    }, {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Imagen"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Benefits",
+      "category": "Socials"
+    }
+  ]
+}
+
+{% endschema %}

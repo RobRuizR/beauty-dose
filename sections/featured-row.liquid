@@ -1,5 +1,5 @@
-<div class="" style="background-color: {{ section.settings.background_color }}">
-    <div class="wrapper">
+<div style="background-color: {{ section.settings.background_color }}">
+    <div class="wrapper medium-padding-xsmall-bottom">
         <div class="page-width feature-row">
             {% capture media_layout %}
                 <div class="feature-row__item image">
@@ -23,6 +23,9 @@
                 {% endif %}
 
                 <div class="feature-row__item feature-row__text feature-row__text--{{ section.settings.layout }} flex flex-column flex-center">
+                    {% if section.settings.subtitle != blank %}
+                        <div class="text-center bold color-main">{{ section.settings.subtitle | escape }}</div>
+                    {% endif %}
                     {% if section.settings.title != blank %}
                         <h2 class="h3 text-center">{{ section.settings.title | escape }}</h2>
                     {% endif %}
@@ -226,6 +229,11 @@
                 "zh-CN": "带文本图片",
                 "zh-TW": "附文字的圖片"
             }
+        },{
+            "type": "text",
+            "id": "subtitle",
+            "label": "Subtitle",
+            "default": "WHY JOIN?"
         }, {
             "type": "richtext",
             "id": "text",
