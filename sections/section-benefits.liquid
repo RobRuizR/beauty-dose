@@ -11,12 +11,12 @@
         <div class="rte-setting featured-row__subtext text-center">{{ section.settings.subtext }}</div>
       {% endif %}
     </div>
-    <div class="feature-row row-responsive">
+    <div class="feature-row row-responsive flex-start">
       <div class="flex flex-column benefit-item medium-padding-horizontal-xsmall">
         <div class="feature-row__item medium-radius hide-overflow image margin-xsmall-bottom">
           {% if section.settings.image != blank %}
             <noscript>
-              {{ section.settings.image | img_url: '600x600' | img_tag: section.settings.image.alt, 'feature-row__image-no-js' }}
+              {{ section.settings.image | img_url: '400x300' | img_tag: section.settings.image.alt, 'feature-row__image-no-js' }}
             </noscript>
             <div class="feature-row__image-wrapper" style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100}}%;">
               {% assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
@@ -37,7 +37,7 @@
         <div class="feature-row__item medium-radius hide-overflow image margin-xsmall-bottom">
           {% if section.settings.image != blank %}
             <noscript>
-              {{ section.settings.image | img_url: '600x600' | img_tag: section.settings.image.alt, 'feature-row__image-no-js' }}
+              {{ section.settings.image | img_url: '400x300' | img_tag: section.settings.image.alt, 'feature-row__image-no-js' }}
             </noscript>
             <div class="feature-row__image-wrapper" style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100}}%;">
               {% assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
@@ -58,7 +58,7 @@
         <div class="feature-row__item medium-radius hide-overflow image margin-xsmall-bottom">
           {% if section.settings.image != blank %}
             <noscript>
-              {{ section.settings.image | img_url: '600x600' | img_tag: section.settings.image.alt, 'feature-row__image-no-js' }}
+              {{ section.settings.image | img_url: '400x300' | img_tag: section.settings.image.alt, 'feature-row__image-no-js' }}
             </noscript>
             <div class="feature-row__image-wrapper" style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100}}%;">
               {% assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}

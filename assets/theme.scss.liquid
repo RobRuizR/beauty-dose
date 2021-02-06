@@ -2371,7 +2371,8 @@ $slideshow-indicator-size: 1.25rem;
   z-index: $zindexHeroHeader;
 }
 
-.template-index .header-wrapper {
+.template-index .header-wrapper,
+#about-us .header-wrapper {
   opacity: 0;
   z-index: $zindexHeroHeader;
   @include animation(fadeIn 0.8s cubic-bezier(0.44, 0.13, 0.48, 0.87) forwards);
@@ -4819,6 +4820,10 @@ $disclosure-list-large: 1100px;
   text-align: center
 }
 
+.flex-start {
+  align-items: flex-start;
+}
+
 .flex-center {
   align-items: center;
 }
@@ -4841,6 +4846,10 @@ $disclosure-list-large: 1100px;
 
 .flex-column {
   flex-direction: column;
+}
+
+.full-height {
+  height: 100%;
 }
 
 .margin-bottom-small {
@@ -4984,6 +4993,19 @@ $shadow: 0px 3px 6px rgba(0, 0, 0, .29);
   color: $colorPrimary;
 }
 
+.position-relative {
+  position: relative;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.full-size {
+  width: 100%;
+  height: 100%;
+}
+
 .benefit-item {
   flex: 1;
   width: 100%;
@@ -4994,10 +5016,32 @@ $shadow: 0px 3px 6px rgba(0, 0, 0, .29);
   }
 }
 
+.height-100vh {
+  height: 100vh;
+}
+
+.large-height-60vh {
+  @include at-query($min, $medium) {
+    height: 60vh;
+  }
+}
+
+.large-width-60pc {
+  width: initial;
+
+  @include at-query($min, $medium) {
+    width: 60%;
+  }
+}
+
 .hide-overflow {
   overflow: hidden;
 }
 
 .medium-radius {
   border-radius: 10px;
+}
+
+.color-white.color-white {
+  color: white;
 }
