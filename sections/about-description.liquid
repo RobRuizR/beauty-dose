@@ -1,15 +1,15 @@
-<div class="background-image height-100vh large-height-60vh position-relative" style="
+<div class="background-image height-100vh large-height-60vh position-relative flex flex-column justify-center" style="
     background-repeat: no-repeat;
     background-size: cover;
     background-image: url('{{ section.settings.image | img_url: '2048x' }}');"
   >
   <div class="position-absolute full-size" style="opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.00 }}; background: black;"></div>
-  <div class="wrapper position-relative large-width-60pc flex full-height flex-column justify-center">
+  <div class="wrapper position-relative large-width-60pc ">
     <h2 class="h2 color-white text-center padding-xsmall-bottom">
       {{ section.settings.title | escape }}
     </h2>
     <div class="color-white text-center">
-      {{ section.settings.subtitle | escape }}
+      {{ section.settings.content | escape }}
     </div>
   </div>
 </div>
@@ -26,8 +26,8 @@
       "default": "¿Qué es Beauty Dose?"
     }, {
       "type": "text",
-      "id": "subtitle",
-      "label": "Subtítulo",
+      "id": "content",
+      "label": "Contenido",
       "default": "Beauty Dose se fundo con la misión de dar la oportunidad a sus usuarios de conocer nuevos productos de belleza."
     }, {
       "type": "range",
