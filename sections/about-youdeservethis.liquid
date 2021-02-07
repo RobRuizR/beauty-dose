@@ -1,0 +1,49 @@
+<div class="flex" style="align-items: stretch; background-color: #fefbf8;">
+  <div class="position-relative wrapper large-width-40pc flex flex-column align-center padding-vertical-medium">
+    <h2 class="h2 text-center">
+      {{ section.settings.title | escape }}
+    </h2>
+    <div class="text-center padding-bottom-xsmall">
+      {{ section.settings.content | escape }}
+    </div>
+    <a href="{{ section.settings.button_link }}" class="btn padding-horizontal-small">
+      {{ section.settings.button_label | escape }}
+    </a>
+  </div>
+</div>
+
+{% schema %}
+
+{
+  "name": "You deserve this",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "You deserve this"
+    }, {
+      "type": "text",
+      "id": "content",
+      "label": "Contenido",
+      "default": "No dudes en convertirte parte de esta increíble experiencial mensual, no te arrepentirás."
+    }, {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texto de botón",
+      "default": "Comienza ahora"
+    }, {
+      "type": "url",
+      "id": "button_link",
+      "label": "Enlace de botón"
+    }
+  ],
+  "presets": [
+    {
+      "name": "You deserve this",
+      "category": "Description"
+    }
+  ]
+}
+
+{% endschema %}

@@ -1,0 +1,45 @@
+<div class="background-image height-100vh large-height-60vh flex" style="align-items: stretch; background-color: #FFEFEA;">
+  <div class="position-relative wrapper padding-horizontal-xsmall flex flex-column full-width padding-top-medium">
+    <div class="color-main text-center bold">
+      {{ section.settings.subtitle | escape }}
+    </div>
+    <h2 class="h2 text-center padding-bottom-xsmall">
+      {{ section.settings.title | escape }}
+    </h2>
+    <div class="embed-container">
+      <iframe allowfullscreen frameborder="0" src="https://www.youtube.com/embed/{{ section.settings.video_url.id }}"></iframe>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+
+{
+  "name": "Become a Member",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "BECOME A MEMBER"
+    }, {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "¿Qué voy a recibir?"
+    }, {
+      "type": "video_url",
+      "id": "video_url",
+      "label": "URL de video",
+      "accept": ["youtube"]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Become a Member",
+      "category": "Description"
+    }
+  ]
+}
+
+{% endschema %}

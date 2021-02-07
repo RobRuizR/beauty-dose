@@ -1,11 +1,10 @@
 <div class="background-image height-100vh large-height-60vh position-relative flex flex-column justify-center" style="
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url('{{ section.settings.image | img_url: '2048x' }}');"
-  >
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-image: url('{{ section.settings.image | img_url: '2048x' }}');">
   <div class="position-absolute full-size" style="opacity: {{ section.settings.image_overlay_opacity | divided_by: 100.00 }}; background: black;"></div>
-  <div class="wrapper position-relative large-width-60pc ">
-    <h2 class="h2 color-white text-center padding-xsmall-bottom">
+  <div class="wrapper position-relative padding-horizontal-xsmall large-width-60pc ">
+    <h2 class="h2 color-white text-center">
       {{ section.settings.title | escape }}
     </h2>
     <div class="color-white text-center">

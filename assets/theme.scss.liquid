@@ -385,6 +385,7 @@ $gridGutter: 30px; // can be a %, but nested grids will have smaller margins bec
 $contentTopMargin: 80px;
 $contentTopMarginSmall: 35px;
 $marginSmall: 35px;
+$marginMedium: 70px;
 $marginXsmall: 18px;
 $marginXxsmall: 9px;
 $radius: 0;
@@ -4844,6 +4845,10 @@ $disclosure-list-large: 1100px;
   justify-content: center;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
 .flex-column {
   flex-direction: column;
 }
@@ -4860,15 +4865,40 @@ $disclosure-list-large: 1100px;
   margin-bottom: $marginXsmall;
 }
 
+.padding-horizontal-xsmall {
+  padding-left: $marginXsmall;
+  padding-right: $marginXsmall;
+}
+
+.padding-bottom-xsmall {
+  padding-bottom: $marginXsmall;
+}
+
 .margin-vertical-small {
-  margin: $marginSmall 0;
+  margin-top: $marginSmall;
+  margin-bottom: $marginSmall;
 }
 
 .padding-vertical-small {
-  padding: $marginSmall 0;
+  padding-top: $marginSmall;
+  padding-bottom: $marginSmall;
 }
 
-.medium-padding-xsmall-bottom {
+.padding-horizontal-small {
+  padding-left: $marginSmall;
+  padding-right: $marginSmall;
+}
+
+.padding-top-medium {
+  padding-top: $marginMedium;
+}
+
+.padding-vertical-medium {
+  padding-top: $marginMedium;
+  padding-bottom: $marginMedium;
+}
+
+.medium-padding-bottom-xsmall {
   padding-bottom: $marginXsmall;
 
   @include at-query($min, $medium) {
@@ -4877,7 +4907,8 @@ $disclosure-list-large: 1100px;
 }
 
 .medium-padding-horizontal-xsmall {
-  padding: 0 $marginXsmall;
+  padding-top: $marginXsmall;
+  padding-bottom: $marginXsmall;
 
   @include at-query($min, $medium) {
     padding: none;
@@ -5001,6 +5032,10 @@ $shadow: 0px 3px 6px rgba(0, 0, 0, .29);
   position: absolute;
 }
 
+.full-width {
+  width: 100%;
+}
+
 .full-size {
   width: 100%;
   height: 100%;
@@ -5026,6 +5061,28 @@ $shadow: 0px 3px 6px rgba(0, 0, 0, .29);
   }
 }
 
+.large-height-80vh {
+  @include at-query($min, $medium) {
+    min-height: 80vh;
+  }
+}
+
+.large-width-30pc {
+  width: initial;
+
+  @include at-query($min, $medium) {
+    width: 30%;
+  }
+}
+
+.large-width-40pc {
+  width: initial;
+
+  @include at-query($min, $medium) {
+    width: 40%;
+  }
+}
+
 .large-width-60pc {
   width: initial;
 
@@ -5044,4 +5101,22 @@ $shadow: 0px 3px 6px rgba(0, 0, 0, .29);
 
 .color-white.color-white {
   color: white;
+}
+
+.embed-container { 
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%; 
+} 
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed { 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
 }

@@ -1,0 +1,54 @@
+<div class="background-image height-100vh large-height-80vh flex" style="
+                align-items: stretch;
+                background-color: #fdf5ef;
+              ">
+  <div class="wrapper position-relative padding-horizontal-xsmall large-width-60pc flex flex-column justify-between padding-vertical-medium">
+    <div>
+      <div class="color-main text-center bold">
+        {{ section.settings.subtitle | escape }}
+      </div>
+      <h2 class="h2 text-center">
+        {{ section.settings.title | escape }}
+      </h2>
+    </div>
+    <div class="text-center">
+      {{ section.settings.content | escape }}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+
+{
+  "name": "Collecting Moments",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtítulo",
+      "default": "COLLECTING MOMENTS"
+    }, {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "Nuestras bolsitas 100% artesanales."
+    }, {
+      "type": "text",
+      "id": "content",
+      "label": "Contenido",
+      "default": "Todos los meses recibirás tus proyectos de belleza en una bolsa artesanal con un diseño único, las cuales están elaboradas en México por increíbles mujeres oaxaqueñas."
+    }, {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collecting Moments",
+      "category": "Description"
+    }
+  ]
+}
+
+{% endschema %}

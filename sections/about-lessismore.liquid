@@ -1,15 +1,15 @@
-<div class="background-image height-100vh large-height-60vh" style="
-    background-color: #fbe7d9;
-  ">
-  <div class="wrapper position-relative large-width-60pc flex full-height flex-column justify-center padding-vertical-small">
+<div class="background-image height-100vh large-height-80vh" style="
+                            background-color: #fbe7d9;
+                          ">
+  <div class="wrapper position-relative padding-horizontal-xsmall large-width-60pc flex full-height flex-column justify-center padding-vertical-medium">
     <div class="color-main text-center bold">
       {{ section.settings.subtitle | escape }}
     </div>
-    <h2 class="h2 text-center padding-xsmall-bottom">
+    <h2 class="h2 text-center">
       {{ section.settings.title | escape }}
     </h2>
     <div class="text-center">
-      {{ section.settings.content | escape }}
+      {{ section.settings.content }}
     </div>
   </div>
 </div>
@@ -23,30 +23,17 @@
       "type": "text",
       "id": "subtitle",
       "label": "Subtítulo",
-      "default": "LESS IS MORE."
+      "default": "LESS IS MORE"
     }, {
       "type": "text",
       "id": "title",
       "label": "Título",
       "default": "¿Qué ofrecemos?"
     }, {
-      "type": "text",
+      "type": "richtext",
       "id": "content",
       "label": "Contenido",
-      "default": "Sabemos lo abrumador que puede ser comprar productos de belleza en una tienda física al tener tantas opciones en el mercado."
-    }, {
-      "type": "range",
-      "id": "image_overlay_opacity",
-      "label": "Opacidad superpuesta",
-      "min": 0,
-      "max": 100,
-      "step": 1,
-      "unit": "%",
-      "default": 25
-    }, {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Imagen"
+      "default": "<p>Sabemos lo abrumador que puede ser comprar productos de belleza en una tienda física al tener tantas opciones en el mercado.</p>"
     }
   ],
   "presets": [
