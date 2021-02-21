@@ -4874,6 +4874,10 @@ $disclosure-list-large: 1100px;
   padding-bottom: $marginXsmall;
 }
 
+.padding-bottom-small {
+  padding-bottom: $marginSmall;
+}
+
 .margin-vertical-small {
   margin-top: $marginSmall;
   margin-bottom: $marginSmall;
@@ -4887,6 +4891,11 @@ $disclosure-list-large: 1100px;
 .padding-horizontal-small {
   padding-left: $marginSmall;
   padding-right: $marginSmall;
+}
+
+.padding-horizontal-medium {
+  padding-left: $marginMedium;
+  padding-right: $marginMedium;
 }
 
 .padding-top-medium {
@@ -4971,6 +4980,10 @@ $shadow: 0px 3px 6px rgba(0, 0, 0, .29);
 
 .margin-xxsmall-bottom {
   margin-bottom: $marginXxsmall;
+}
+
+.margin-small-bottom {
+  margin-bottom: $marginSmall;
 }
 
 .margin-xsmall-bottom {
@@ -5099,6 +5112,30 @@ $shadow: 0px 3px 6px rgba(0, 0, 0, .29);
   border-radius: 10px;
 }
 
+.no-radius {
+  border-radius: 0;
+
+  &:focus {
+    border-radius: 0;
+  }
+}
+
+.border-black {
+  border-color: black;
+}
+
+.border-light-5 {
+  border-color: #888;
+}
+
+.border-hair {
+  border-width: 1px;
+}
+
+.border-xxxsmall {
+  border-width: 2px;
+}
+
 .color-white.color-white {
   color: white;
 }
@@ -5119,4 +5156,8 @@ $shadow: 0px 3px 6px rgba(0, 0, 0, .29);
   left: 0; 
   width: 100%; 
   height: 100%; 
+}
+
+.background-transparent {
+  background-color: transparent;
 }

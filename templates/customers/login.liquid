@@ -1,12 +1,19 @@
 <!-- /templates/customers/login.liquid -->
+{% style %}
 
-<div class="grid">
+header.site-header {
+  background: #fefbf9;
+}
 
-  <div class="grid__item large--one-third push--large--one-third text-center">
+{% endstyle %}
+
+
+<div class="grid" style="background: #fefbf9">
+
+  <div class="grid__item large--one-third push--large--one-third text-center padding-vertical-medium">
 
     <header class="section-header">
       <h1>{{ 'customer.login.title' | t }}</h1>
-      <hr class="hr--small">
     </header>
 
     {% comment %}
@@ -24,15 +31,17 @@
         {{ form.errors | default_errors }}
 
         <label for="CustomerEmail" class="hidden-label">{{ 'customer.login.email' | t }}</label>
-        <input type="email" name="customer[email]" id="CustomerEmail" class="input-full{% if form.errors contains 'email' %} error{% endif %}" placeholder="{{ 'customer.login.email' | t }}" autocorrect="off" autocapitalize="off" autofocus>
-
+        <input type="email" name="customer[email]" id="CustomerEmail" class="border-light-5 border-xxxsmall padding-horizontal-small padding-vertical-xsmall background-transparent no-radius input-full{% if form.errors contains 'email' %} error{% endif %}" placeholder="{{ 'customer.login.email' | t }}" autocorrect="off" autocapitalize="off" autofocus>
+        <div class="padding-bottom-xsmall"></div>
         {% if form.password_needed %}
           <label for="CustomerPassword" class="hidden-label">{{ 'customer.login.password' | t }}</label>
-          <input type="password" value="" name="customer[password]" id="CustomerPassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}" placeholder="{{ 'customer.login.password' | t }}">
+          
+          <input type="password" value="" name="customer[password]" id="CustomerPassword" class="border-light-5 border-xxxsmall padding-horizontal-small padding-vertical-xsmall background-transparent no-radius input-full{% if form.errors contains 'password' %} error{% endif %}" placeholder="{{ 'customer.login.password' | t }}">
+          <div class="padding-bottom-small"></div>
         {% endif %}
 
         <p>
-          <input type="submit" class="btn btn--full" value="{{ 'customer.login.sign_in' | t }}">
+          <input type="submit" class="btn large-width-60pc button-secondary" value="{{ 'customer.login.sign_in' | t }}">
         </p>
         <p>{{ 'layout.customer.create_account' | t | customer_register_link }}</p>
         <p><a href="{{ shop.url }}">{{ 'customer.login.cancel' | t }}</a></p>
