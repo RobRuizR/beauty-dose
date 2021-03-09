@@ -1,29 +1,237 @@
 <!-- /templates/customers/register.liquid -->
 
-<div class="grid">
+<div class="grid padding-vertical-medium padding-horizontal-xsmall flex justify-center" style="background-color: #fefbf9;">
 
-  <div class="grid__item large--one-third push--large--one-third text-center">
+  <div class="grid__item text-center wrapper">
 
     <header class="section-header">
-      <h1>{{ 'customer.register.title' | t }}</h1>
-      <hr class="hr--small">
+      <div class="color-main text-center bold">
+        TEST
+      </div>
+      <h1 class="h2 text-center">{{ 'customer.register.title' | t }}</h1>
     </header>
 
     <div class="form-vertical">
       {% form 'create_customer' %}
+        <div class="padding-vertical-xsmall">
+          <h3 class="text-left">1. ¿Cuál es tu tono de piel?</h3>
+          <div class="d-grid grid-columns-2 medium-grid-columns-6 grid-gap-small">
+
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormMuyClara" name="customer[note][tono_piel]" type="radio" value="Muy clara"/>
+              <label for="CustomerFormMuyClara" style="--bg-color: #FFF0EF;">
+                Muy clara
+              </label>
+            </div>
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormClara" name="customer[note][tono_piel]" type="radio" value="Clara"/>
+              <label for="CustomerFormClara" style="--bg-color: #FAE1D0;">
+                Clara
+              </label>
+            </div>
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormBeige" name="customer[note][tono_piel]" type="radio" value="Beige"/>
+              <label for="CustomerFormBeige" style="--bg-color: #EAC5A2;">
+                Beige
+              </label>
+            </div>
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormMorenaClara" name="customer[note][tono_piel]" type="radio" value="Morena clara"/>
+              <label for="CustomerFormMorenaClara" style="--bg-color: #CA9961;">
+                Morena clara
+              </label>
+            </div>
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormMorena" name="customer[note][tono_piel]" type="radio" value="Morena"/>
+              <label for="CustomerFormMorena" style="--bg-color: #946B4E;">
+                Morena
+              </label>
+            </div>
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormOscura" name="customer[note][tono_piel]" type="radio" value="Oscura"/>
+              <label for="CustomerFormOscura" style="--bg-color: #4C4139;">
+                Oscura
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="padding-vertical-xsmall">
+          <h3 class="text-left">2. ¿Cuál es tu color de cabello?</h3>
+          <div class="d-grid grid-columns-2 medium-grid-columns-6 grid-gap-small">
+
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormNegro" name="customer[note][tono_cabello]" type="radio" value="Negro"/>
+              <label for="CustomerFormNegro" style="--bg-color: #434343;">
+                Negro
+              </label>
+            </div>
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormCastañoOscuro" name="customer[note][tono_cabello]" type="radio" value="CastañoOscuro"/>
+              <label for="CustomerFormCastañoOscuro" style="--bg-color: #533622;">
+                Castaño oscuro
+              </label>
+            </div>
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormCastañoClaro" name="customer[note][tono_cabello]" type="radio" value="CastañoClaro"/>
+              <label for="CustomerFormCastañoClaro" style="--bg-color: #F7DB9D;">
+                Castaño claro
+              </label>
+            </div>
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormRubio" name="customer[note][tono_cabello]" type="radio" value="Rubio"/>
+              <label for="CustomerFormRubio" style="--bg-color: #CA9961;">
+                Rubio
+              </label>
+            </div>
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormRojizo" name="customer[note][tono_cabello]" type="radio" value="Rojizo"/>
+              <label for="CustomerFormRojizo" style="--bg-color: #902314;">
+                Rojizo
+              </label>
+            </div>
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormGris" name="customer[note][tono_cabello]" type="radio" value="Gris"/>
+              <label for="CustomerFormGris" style="--bg-color: #898989;">
+                Gris
+              </label>
+            </div>
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormBlanco" name="customer[note][tono_cabello]" type="radio" value="Blanco"/>
+              <label for="CustomerFormBlanco" style="--bg-color: #FFFFFF;">
+                Blanco
+              </label>
+            </div>
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormOtro" name="customer[note][tono_cabello]" type="radio" value="Otro"/>
+              <label for="CustomerFormOtro" style="--bg-color: #9683FF;">
+                Otro
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="padding-vertical-xsmall">
+          <h3 class="text-left">3. ¿Cuál es tu tipo de piel?</h3>
+          <div class="d-grid grid-columns-2 medium-grid-columns-6 grid-gap-small">
+
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormSeca" name="customer[note][tipo_piel]" type="radio" value="Seca"/>
+              <label for="CustomerFormSeca" style="--bg-color: #FFF0EF;">
+                Seca
+              </label>
+            </div>
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormNormal" name="customer[note][tipo_piel]" type="radio" value="Normal"/>
+              <label for="CustomerFormNormal" style="--bg-color: #FAE1D0;">
+                Normal
+              </label>
+            </div>
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormMixta" name="customer[note][tipo_piel]" type="radio" value="Mixta"/>
+              <label for="CustomerFormMixta" style="--bg-color: #EAC5A2;">
+                Mixta
+              </label>
+            </div>
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormGrasa" name="customer[note][tipo_piel]" type="radio" value="Grasa"/>
+              <label for="CustomerFormGrasa" style="--bg-color: #CA9961;">
+                Grasa
+              </label>
+            </div>
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormSensible" name="customer[note][tipo_piel]" type="radio" value="Sensible"/>
+              <label for="CustomerFormSensible" style="--bg-color: #946B4E;">
+                Sensible
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="padding-vertical-xsmall">
+          <h3 class="text-left">4. Detalles de tu piel</h3>
+          <div class="d-grid grid-columns-2 medium-grid-columns-6 grid-gap-small">
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormRojez" name="customer[note][detalles_piel]" type="radio" value="Rojez"/>
+              <label for="CustomerFormRojez" style="--bg-color: #bababa;">
+                Rojez
+              </label>
+            </div>
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormArrugas" name="customer[note][detalles_piel]" type="radio" value="Arrugas y líneas de expresión"/>
+              <label for="CustomerFormArrugas" style="--bg-color: #bababa;">
+                Arrugas y líneas de expresión
+              </label>
+            </div>
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormPoros" name="customer[note][detalles_piel]" type="radio" value="Poros abiertos"/>
+              <label for="CustomerFormPoros" style="--bg-color: #bababa;">
+                Poros abiertos
+              </label>
+            </div>
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormAcne" name="customer[note][detalles_piel]" type="radio" value="Acné y manchas"/>
+              <label for="CustomerFormAcne" style="--bg-color: #bababa;">
+                Acné y manchas
+              </label>
+            </div>
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormNinguno" name="customer[note][detalles_piel]" type="radio" value="Ninguno"/>
+              <label for="CustomerFormNinguno" style="--bg-color: #bababa;">
+                Ninguno
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="padding-vertical-xsmall">
+          <h3 class="text-left">5. Selecciona tus tonos favoritos</h3>
+          <div class="d-grid grid-columns-2 medium-grid-columns-6 grid-gap-small">
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormCalidos" name="customer[note][tonos_favoritos]" type="radio" value="Cálidos"/>
+              <label for="CustomerFormCalidos" style="--bg-color: #FFD067;">
+                Cálidos
+              </label>
+            </div>
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormFrios" name="customer[note][tonos_favoritos]" type="radio" value="Fríos"/>
+              <label for="CustomerFormFrios" style="--bg-color: #A0CCFF;">
+                Fríos
+              </label>
+            </div>
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormOscuros" name="customer[note][tonos_favoritos]" type="radio" value="Oscuros"/>
+              <label for="CustomerFormOscuros" style="--bg-color: #464646;">
+                Oscuros
+              </label>
+            </div>
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormNeutrales" name="customer[note][tonos_favoritos]" type="radio" value="Neutrales"/>
+              <label for="CustomerFormNeutrales" style="--bg-color: #E8E8E8;">
+                Neutrales
+              </label>
+            </div>
+            <div class="flex flex-column">
+              <input class="invisible-option" id="CustomerFormDivertidos" name="customer[note][tonos_favoritos]" type="radio" value="Divertidos"/>
+              <label for="CustomerFormDivertidos" style="--bg-color: #FF3B8E;">
+                Divertidos
+              </label>
+            </div>
+          </div>
+        </div>
 
         {{ form.errors | default_errors }}
 
-        <label for="FirstName" class="hidden-label">{{ 'customer.register.first_name' | t }}</label>
-        <input type="text" name="customer[first_name]" id="FirstName" class="input-full" placeholder="{{ 'customer.register.first_name' | t }}" {% if form.first_name %}value="{{ form.first_name }}"{% endif %} autocapitalize="words" autofocus>
+        <label class="hidden-label" for="FirstName">{{ 'customer.register.first_name' | t }}</label>
+        <input type="text" name="customer[first_name]" id="FirstName" class="input-full" placeholder="{{ 'customer.register.first_name' | t }}" {% if form.first_name %} value="{{ form.first_name }}" {% endif %} autocapitalize="words" autofocus>
 
-        <label for="LastName" class="hidden-label">{{ 'customer.register.last_name' | t }}</label>
-        <input type="text" name="customer[last_name]" id="LastName" class="input-full" placeholder="{{ 'customer.register.last_name' | t }}" {% if form.last_name %}value="{{ form.last_name }}"{% endif %} autocapitalize="words">
+        <label class="hidden-label" for="LastName">{{ 'customer.register.last_name' | t }}</label>
+        <input type="text" name="customer[last_name]" id="LastName" class="input-full" placeholder="{{ 'customer.register.last_name' | t }}" {% if form.last_name %} value="{{ form.last_name }}" {% endif %} autocapitalize="words">
 
-        <label for="Email" class="hidden-label">{{ 'customer.register.email' | t }}</label>
-        <input type="email" name="customer[email]" id="Email" class="input-full{% if form.errors contains 'email' %} error{% endif %}" placeholder="{{ 'customer.register.email' | t }}" {% if form.email %} value="{{ form.email }}"{% endif %} autocorrect="off" autocapitalize="off">
+        <label class="hidden-label" for="Email">{{ 'customer.register.email' | t }}</label>
+        <input type="email" name="customer[email]" id="Email" class="input-full{% if form.errors contains 'email' %} error{% endif %}" placeholder="{{ 'customer.register.email' | t }}" {% if form.email %} value="{{ form.email }}" {% endif %} autocorrect="off" autocapitalize="off">
 
-        <label for="CreatePassword" class="hidden-label">{{ 'customer.register.password' | t }}</label>
+        <label class="hidden-label" for="CreatePassword">{{ 'customer.register.password' | t }}</label>
         <input type="password" name="customer[password]" id="CreatePassword" class="input-full{% if form.errors contains 'password' %} error{% endif %}" placeholder="{{ 'customer.register.password' | t }}">
 
         <p>

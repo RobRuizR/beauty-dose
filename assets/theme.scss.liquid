@@ -4817,8 +4817,12 @@ $disclosure-list-large: 1100px;
   display: flex;
 }
 
+.text-left {
+  text-align: left;
+}
+
 .text-center {
-  text-align: center
+  text-align: center;
 }
 
 .flex-start {
@@ -4883,6 +4887,11 @@ $disclosure-list-large: 1100px;
   margin-bottom: $marginSmall;
 }
 
+.padding-vertical-xsmall {
+  padding-top: $marginXsmall;
+  padding-bottom: $marginXsmall;
+}
+
 .padding-vertical-small {
   padding-top: $marginSmall;
   padding-bottom: $marginSmall;
@@ -4896,6 +4905,10 @@ $disclosure-list-large: 1100px;
 .padding-horizontal-medium {
   padding-left: $marginMedium;
   padding-right: $marginMedium;
+}
+
+.padding-top-xsmall {
+  padding-top: $marginXsmall;
 }
 
 .padding-top-medium {
@@ -4913,6 +4926,10 @@ $disclosure-list-large: 1100px;
   @include at-query($min, $medium) {
     padding-bottom: none;
   }
+}
+
+.padding-right-xsmall {
+  padding-right: $marginXsmall;
 }
 
 .medium-padding-horizontal-xsmall {
@@ -5174,3 +5191,76 @@ $shadow: 0px 3px 6px rgba(0, 0, 0, .29);
   background-color: transparent;
 }
 
+.invisible-option {
+  position: absolute;
+  left: -9999px;
+}
+
+border-box {
+  box-sizing: border-box;
+}
+
+input.invisible-option + label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+
+  &::before {
+    content: "";
+    display: block;
+    padding-bottom: $marginSmall;
+    background-color: var(--bg-color);
+    width: 4em;
+    height: 4em;
+    transition: 0.3s ease-in-out border;
+    border-radius: 10em;
+    border-width: 0;
+    border-color: #D6514D;
+    border-style: solid;
+  }
+}
+
+
+input.invisible-option:hover + label,
+input.invisible-option:focus + label,
+input.invisible-option:focus-within + label {
+  &::before {
+    border-width: 5px;
+    border-color: #D6514D55;
+  }
+}
+
+input.invisible-option:checked + label {
+  &::before {
+    border-width: 5px;
+    border-color: #D6514D;
+  }
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.d-grid {
+  display: grid;
+}
+
+.grid-columns-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.medium-grid-columns-6 {
+  @include at-query($min, $medium) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.grid-gap-xsmall {
+  column-gap: $marginXsmall;
+  row-gap: $marginXsmall;
+}
+.grid-gap-small {
+  column-gap: $marginSmall;
+  row-gap: $marginSmall;
+}
