@@ -4813,6 +4813,8 @@ $disclosure-list-large: 1100px;
   }
 }
 
+/** Beauty Dose styles **/
+
 .flex {
   display: flex;
 }
@@ -5204,23 +5206,31 @@ input.invisible-option + label {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+}
 
+@mixin soft-transition() {
+  transition: 0.3s ease-in-out border, 0.3s ease-in-out fill;
+}
+
+@mixin common-option-props() {
+  @include soft-transition;
+  width: 5em;
+  height: 5em;
+  border-radius: 10em;
+  border-width: 0;
+  border-style: solid;
+}
+
+input.invisible-option:not(.svg-option) + label {
   &::before {
     content: "";
     display: block;
-    padding-bottom: $marginSmall;
+    margin-bottom: $marginXsmall;
     background-color: var(--bg-color);
-    width: 4em;
-    height: 4em;
-    transition: 0.3s ease-in-out border;
-    border-radius: 10em;
-    border-width: 0;
     border-color: #D6514D;
-    border-style: solid;
+    @include common-option-props;
   }
 }
-
 
 input.invisible-option:hover + label,
 input.invisible-option:focus + label,
@@ -5235,6 +5245,39 @@ input.invisible-option:checked + label {
   &::before {
     border-width: 5px;
     border-color: #D6514D;
+  }
+}
+
+input.invisible-option.svg-option + label > div {
+  @include common-option-props;
+  border: 3px solid #583E3D;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: $marginXsmall;
+
+  & path {
+    @include soft-transition;
+  }
+}
+
+input.invisible-option.svg-option:hover,
+input.invisible-option.svg-option:focus,
+input.invisible-option.svg-option:focus-within {
+  & + label > div {
+    border-color: #D6514D55;
+    & path {
+      fill: #D6514D55;
+    }
+  }
+}
+
+
+input.invisible-option.svg-option:checked + label > div {
+  border-color: #D6514D;
+  & path {
+    fill: #D6514D;
   }
 }
 
