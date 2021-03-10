@@ -5202,10 +5202,16 @@ border-box {
   box-sizing: border-box;
 }
 
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 input.invisible-option + label {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
 }
 
 @mixin soft-transition() {
@@ -5221,8 +5227,8 @@ input.invisible-option + label {
   border-style: solid;
 }
 
-input.invisible-option:not(.svg-option) + label {
-  &::before {
+input.invisible-option:not(.svg-option) {
+  &+ label::before {
     content: "";
     display: block;
     margin-bottom: $marginXsmall;
@@ -5262,6 +5268,22 @@ input.invisible-option.svg-option + label > div {
   }
 }
 
+input.invisible-option.face-option + label {
+  & > div {
+    border-width: 3px;
+    margin-bottom: $marginXxsmall;
+    & path {
+      @include soft-transition;
+    }
+    & #face-skin {
+      fill: white;
+    }
+  }
+  &::before {
+    content: none;
+  }
+}
+
 input.invisible-option.svg-option:hover,
 input.invisible-option.svg-option:focus,
 input.invisible-option.svg-option:focus-within {
@@ -5273,11 +5295,32 @@ input.invisible-option.svg-option:focus-within {
   }
 }
 
+input.invisible-option.face-option:hover + label,
+input.invisible-option.face-option:focus + label,
+input.invisible-option.face-option:focus-within + label {
+  & > div path {
+    fill: #D6514D55;
+  }
+  & > div #face-skin {
+    fill: white;
+  }
+}
 
 input.invisible-option.svg-option:checked + label > div {
   border-color: #D6514D;
   & path {
     fill: #D6514D;
+  }
+}
+
+
+input.invisible-option.face-option:checked + label > div {
+  border-color: #D6514D;
+  & path {
+    fill: #D6514D;
+  }
+  & #face-skin {
+    fill: #FFB2B2;
   }
 }
 
