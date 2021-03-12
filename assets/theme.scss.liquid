@@ -4884,6 +4884,10 @@ $disclosure-list-large: 1100px;
   padding-bottom: $marginSmall;
 }
 
+.padding-bottom-medium {
+  padding-bottom: $marginMedium;
+}
+
 .margin-vertical-small {
   margin-top: $marginSmall;
   margin-bottom: $marginSmall;
@@ -5316,7 +5320,8 @@ input.invisible-option.svg-option:checked + label > div {
 
 input.invisible-option.face-option:checked + label > div {
   border-color: #D6514D;
-  & path {
+  & path.a,
+  & path.b {
     fill: #D6514D;
   }
   & #face-skin {
