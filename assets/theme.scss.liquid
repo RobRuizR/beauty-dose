@@ -889,7 +889,6 @@ hr {
 table {
   position: relative;
   border: 0 none;
-  background-color: $colorNewsletter;
 }
 
 td,
@@ -912,7 +911,6 @@ tr:first-child td {
     bottom: 0;
     left: -15px;
     right: 15px;
-    border-bottom: 1px solid $colorBorder;
   }
 
   &:first-child:after {
@@ -4893,6 +4891,11 @@ $disclosure-list-large: 1100px;
   margin-bottom: $marginSmall;
 }
 
+.padding-vertical-xxsmall {
+  padding-top: $marginXxsmall;
+  padding-bottom: $marginXxsmall;
+}
+
 .padding-vertical-xsmall {
   padding-top: $marginXsmall;
   padding-bottom: $marginXsmall;
@@ -5143,8 +5146,17 @@ $shadow: 0px 3px 6px rgba(0, 0, 0, .29);
   overflow: hidden;
 }
 
+
+.full-radius {
+  border-radius: 100em;
+}
+
 .medium-radius {
   border-radius: 10px;
+}
+
+.small-radius {
+  border-radius: 5px;
 }
 
 .no-radius {
@@ -5337,8 +5349,18 @@ input.invisible-option.face-option:checked + label > div {
   display: grid;
 }
 
+.grid-columns-1 {
+  grid-template-columns: 1fr;
+}
+
 .grid-columns-2 {
   grid-template-columns: repeat(2, 1fr);
+}
+
+.medium-grid-columns-2 {
+  @include at-query($min, $medium) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .medium-grid-columns-6 {
@@ -5354,4 +5376,40 @@ input.invisible-option.face-option:checked + label > div {
 .grid-gap-small {
   column-gap: $marginSmall;
   row-gap: $marginSmall;
+}
+
+.bgcolor-pink1 {
+  background-color: #D6514D;
+}
+
+.color-white {
+  color: white;
+}
+
+.size-2em {
+  width: 2em;
+  height: 2em;
+}
+
+.bottom-border-pink {
+  border-bottom: #F9E3DF 1px solid;
+}
+
+.table-left-border-pink {
+  position: relative;
+
+  &::before{
+    content: "";
+    position: absolute;
+    height: 1.5em;
+    top: 50%;
+    left: 0;
+    width: 1px;
+    background-color: #F9E3DF;
+    transform: translateY(-50%);
+  }
+}
+.color-light2 {
+  color: #000;
+  opacity: 0.28;
 }

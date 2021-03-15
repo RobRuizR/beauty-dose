@@ -244,10 +244,6 @@
           <div class="product-single__description rte" itemprop="description">
             {{ product.description }}
           </div>
-
-          {% if section.settings.social_sharing_products %}
-            {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product.featured_media %}
-          {% endif %}
         </div>
       </div>
     </div>
@@ -264,6 +260,7 @@
 
 
 {% schema %}
+
 {
   "name": {
     "cs": "Stránky produktu",
@@ -315,8 +312,7 @@
         "zh-CN": "显示产品厂商",
         "zh-TW": "顯示產品廠商"
       }
-    },
-    {
+    }, {
       "type": "checkbox",
       "id": "social_sharing_products",
       "label": {
@@ -343,8 +339,7 @@
         "zh-TW": "啟用產品分享"
       },
       "default": true
-    },
-    {
+    }, {
       "type": "header",
       "content": {
         "cs": "Formulář produktových variant",
@@ -369,8 +364,7 @@
         "zh-CN": "产品选项表单",
         "zh-TW": "產品選項表單"
       }
-    },
-    {
+    }, {
       "type": "checkbox",
       "id": "quantity_enabled",
       "label": {
@@ -396,8 +390,7 @@
         "zh-CN": "显示数量选择器",
         "zh-TW": "顯示數量選擇器"
       }
-    },
-    {
+    }, {
       "type": "select",
       "id": "product_selector",
       "label": {
@@ -449,8 +442,7 @@
             "zh-CN": "按钮",
             "zh-TW": "按鈕"
           }
-        },
-        {
+        }, {
           "value": "select",
           "label": {
             "cs": "Rozevírací nabídka",
@@ -477,8 +469,7 @@
           }
         }
       ]
-    },
-    {
+    }, {
       "type": "header",
       "content": {
         "cs": "Tlačítko Přidat do košíku",
@@ -503,8 +494,7 @@
         "zh-CN": "“添加到购物车”按钮",
         "zh-TW": "加入購物車按鈕"
       }
-    },
-    {
+    }, {
       "type": "checkbox",
       "id": "enable_payment_button",
       "label": {
@@ -554,8 +544,7 @@
         "zh-TW": "每位顧客都可以在您商店內開放使用的付款方式中看見他們偏好使用的方式，如 PayPal、Apple Pay 等。[深入瞭解](https://help.shopify.com/manual/using-themes/change-the-layout/dynamic-checkout)"
       },
       "default": true
-    },
-    {
+    }, {
       "type": "select",
       "id": "add_to_cart_button_size",
       "label": {
@@ -608,8 +597,7 @@
             "zh-CN": "小",
             "zh-TW": "小型"
           }
-        },
-        {
+        }, {
           "value": "large",
           "label": {
             "cs": "Velká",
@@ -636,8 +624,7 @@
           }
         }
       ]
-    },
-    {
+    }, {
       "type": "header",
       "content": {
         "cs": "Multimédia",
@@ -685,8 +672,7 @@
         "zh-CN": "详细了解[媒体类型](https://help.shopify.com/manual/products/product-media)",
         "zh-TW": "深入瞭解 [媒體類型](https://help.shopify.com/manual/products/product-media)"
       }
-    },
-    {
+    }, {
       "type": "select",
       "id": "media_layout",
       "label": {
@@ -739,8 +725,7 @@
             "zh-CN": "已堆叠",
             "zh-TW": "已堆疊"
           }
-        },
-        {
+        }, {
           "value": "thumbnails",
           "label": {
             "cs": "Náhledy",
@@ -767,8 +752,7 @@
           }
         }
       ]
-    },
-    {
+    }, {
       "type": "checkbox",
       "id": "enable_image_zoom",
       "label": {
@@ -794,8 +778,7 @@
         "zh-CN": "启用图片缩放",
         "zh-TW": "啟用圖片縮放"
       }
-    },
-    {
+    }, {
       "type": "checkbox",
       "id": "enable_video_looping",
       "label": {
@@ -825,4 +808,5 @@
     }
   ]
 }
+
 {% endschema %}

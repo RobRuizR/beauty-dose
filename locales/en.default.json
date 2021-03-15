@@ -235,6 +235,7 @@
       "last_name": "Last Name",
       "email": "Email",
       "password": "Password",
+      "password_confirm": "Confirm Password",
       "submit": "Create",
       "cancel": "Return to Store"
     }
