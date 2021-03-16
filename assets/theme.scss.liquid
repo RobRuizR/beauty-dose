@@ -1028,13 +1028,6 @@ th,
 
 /*================ Rich Text Editor Styles ================*/
 .rte {
-  h1 {
-    text-align: center;
-  }
-
-  h2 {
-    text-align: center;
-  }
 
   // emulate separator line (<hr>) under rte headings
   h1::after, h2::after {
@@ -1080,7 +1073,7 @@ blockquote {
 .page .rte {
   h2,
   h3 {
-    margin-bottom: 2em;
+    margin-bottom: 1.5em;
   }
 }
 
@@ -5412,4 +5405,19 @@ input.invisible-option.face-option:checked + label > div {
 .color-light2 {
   color: #000;
   opacity: 0.28;
+}
+
+.shopify-policy__container.shopify-policy__container {
+  max-width: $siteWidth;
+  padding-top: 36px;
+  padding-bottom: 36px;
+
+  h1, h2, h3, h4, h5 {
+    text-align: left;
+  }
+
+  h2, .h2, h3, .h3 {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+  }
 }

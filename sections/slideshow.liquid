@@ -125,14 +125,19 @@
             <div class="hero__text-align wrapper">
               <div class="hero__text-content" data-hero-text-content>
                 {%- unless block.settings.slide_heading == blank -%}
-                  <h2 class="hero__title h1">
-                    {{ block.settings.slide_heading | escape }}
-                  </h2>
+                  
+                  <div class="large-width-40pc">
+                    <h2 class="hero__title h1">
+                      {{ block.settings.slide_heading | escape }}
+                    </h2>
+                  </div>
                 {%- endunless -%}
                 {%- unless block.settings.slide_subheading == blank -%}
-                  <p class="hero__subtitle">
-                    {{ block.settings.slide_subheading | escape }}
-                  </p>
+                  <div class="large-width-40pc">
+                    <p class="hero__subtitle">
+                      {{ block.settings.slide_subheading | escape }}
+                    </p>
+                  </div>
                 {%- endunless -%}
                 {%- if block.settings.button_label != blank and block.settings.button_link != blank -%}
                   <a href="{{ block.settings.button_link }}"  style="color: {{ block.settings.slide_button_label_color }}; background-color: {{ block.settings.slide_button_background_color }}" class="btn hero__cta button-stretch">
@@ -179,9 +184,11 @@
               </p>
             {%- endunless -%}
             {%- unless block.settings.slide_heading == blank -%}
+            <div class="large-width-40pc">
               <h2 class="hero__title h1">
                 {{ block.settings.slide_heading | escape }}
               </h2>
+            </div>
             {%- endunless -%}
             {%- if block.settings.button_label != blank and block.settings.button_link != blank -%}
               <a href="{{ block.settings.button_link }}" class="hero__cta btn">
