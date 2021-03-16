@@ -10,11 +10,11 @@
 
 {% paginate customer.addresses by 5 %}
 
-  <div class="grid padding-vertical-medium padding-horizontal-xsmall flex justify-center">
+  <div class="grid padding-vertical-medium flex justify-center">
     <div class="wrapper">
       <header class="section-header text-center">
-        <h1>{{ 'customer.account.title' | t }}</h1>
-        <hr class="hr--small">
+        <h1>{{ page_title }}</h1>
+        
       </header>
 
       <div class="grid">
@@ -23,12 +23,10 @@
           <p>
             <a class="btn" href="#" onclick="Shopify.CustomerAddress.toggleNewForm(); return false;">{{ 'customer.addresses.add_new' | t }}</a>
           </p>
-          <hr class="hr--small hr--clear">
           <p>
             <a href="{{ routes.account_url }}" class="return-link">&larr;
               {{ 'customer.account.return' | t }}</a>
           </p>
-          <hr class="hr--small hr--clear">
         </div>
         <div class="grid__item two-thirds medium-down--one-whole">
 
@@ -100,7 +98,6 @@
                 <a href="#" onclick="Shopify.CustomerAddress.toggleNewForm(); return false;">{{ 'customer.addresses.cancel' | t }}</a>
               </p>
 
-              <hr>
             {% endform %}
           </div>
 
@@ -184,7 +181,6 @@
                   <a href="#" onclick="Shopify.CustomerAddress.toggleForm({{form.id}}); return false;">{{ 'customer.addresses.cancel' | t }}</a>
                 </p>
 
-                <hr>
               {% endform %}
             </div>
 

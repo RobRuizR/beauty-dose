@@ -870,11 +870,6 @@ $class-type: unquote(".");
   list-style: none;
   margin: 0;
   padding: 0;
-  margin-left: -($gridGutter / 2);
-
-  @include at-query($min, $postSmall) {
-    margin-left: -$gridGutter;
-  }
 }
 
 #{$class-type}grid__item {
@@ -1941,8 +1936,6 @@ $socialIconFontStack: 'icons';
 
 .ajaxcart__row {
   > .grid {
-    margin-left: -$gutter / 2;
-
     > .grid__item {
       padding-left: $gutter / 2;
     }
