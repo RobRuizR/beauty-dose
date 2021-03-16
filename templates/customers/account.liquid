@@ -18,8 +18,53 @@
             {{ customer.first_name }}!</h1>
           {%- comment -%}{{ 'layout.customer.log_out'| t | customer_logout_link }}{%- endcomment -%}
         </div>
-
       </header>
+
+      {% assign metafields = customer.metafields.global %}
+
+      <div class="d-grid grid-columns-2 medium-grid-columns-3 text-center grid-gap-xsmall padding-horizontal-medium padding-vertical-xsmall border-pink medium-radius">
+        {%- unless metafields.tono_piel == blank -%}
+          <div>
+            <span class="bold">
+              Tono de piel:
+            </span> {{ metafields.tono_piel }}
+          </div>
+        {%- endunless -%}
+  
+        {%- unless metafields.tono_cabello == blank -%}
+          <div>
+            <span class="bold">
+              Color de cabello:
+            </span> {{ metafields.tono_cabello }}
+          </div>
+        {%- endunless -%}
+  
+        {%- unless metafields.tipo_piel == blank -%}
+          <div>
+            <span class="bold">
+              Tipo de piel:
+            </span> {{ metafields.tipo_piel }}
+          </div>
+        {%- endunless -%}
+  
+        {%- unless metafields.detalles_piel == blank -%}
+          <div>
+            <span class="bold">
+              Detalles de piel:
+            </span> {{ metafields.detalles_piel }}
+          </div>
+        {%- endunless -%}
+  
+        {%- unless metafields.tonos_favoritos == blank -%}
+          <div>
+            <span class="bold">
+              Tonos favoritos:
+            </span> {{ metafields.tonos_favoritos }}
+          </div>
+        {%- endunless -%}
+      </div>
+
+      <div class="padding-vertical-xsmall"></div>
 
       <div class="d-grid grid.columns-1 medium-grid-columns-2 grid-gap-xsmall">
         <div>

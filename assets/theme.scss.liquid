@@ -5342,23 +5342,17 @@ input.invisible-option.face-option:checked + label > div {
   display: grid;
 }
 
-.grid-columns-1 {
-  grid-template-columns: 1fr;
-}
-
-.grid-columns-2 {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.medium-grid-columns-2 {
-  @include at-query($min, $medium) {
-    grid-template-columns: repeat(2, 1fr);
+@for $i from 1 through 6 {
+  .grid-columns-#{$i} {
+    grid-template-columns: repeat(#{$i}, 1fr);
   }
 }
 
-.medium-grid-columns-6 {
-  @include at-query($min, $medium) {
-    grid-template-columns: repeat(6, 1fr);
+@for $i from 1 through 6 {
+  .medium-grid-columns-#{$i} {
+    @include at-query($min, $medium) {
+      grid-template-columns: repeat(#{$i}, 1fr);
+    }
   }
 }
 
@@ -5420,4 +5414,8 @@ input.invisible-option.face-option:checked + label > div {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
   }
+}
+
+.border-pink {
+  border: 1px solid #F9E3DF;
 }
