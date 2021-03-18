@@ -120,20 +120,26 @@
               alt="{{ block.settings.image.alt | escape }}"
               style="object-position: {{ block.settings.image_position }}">
           {%- endif -%}
+          {% assign textMarginClass = "" %}
+          {% if block.settings.text_alignment == "center" %}
+            {% assign textMarginClass = "margin-horizontal-auto" %}
+          {% endif %}
+
 
           <div class="hero__text-wrap{% if block.settings.image_overlay %} slideshow__overlay{% endif %}">
             <div class="hero__text-align wrapper">
               <div class="hero__text-content" data-hero-text-content>
                 {%- unless block.settings.slide_heading == blank -%}
                   
-                  <div class="large-width-40pc">
+                  <div class="large-width-40pc {{ textMarginClass }}">
                     <h2 class="hero__title h1">
                       {{ block.settings.slide_heading | escape }}
+                      {{ block.settings.text_alignment }}
                     </h2>
                   </div>
                 {%- endunless -%}
                 {%- unless block.settings.slide_subheading == blank -%}
-                  <div class="large-width-40pc">
+                  <div class="large-width-40pc {{ textMarginClass }}">
                     <p class="hero__subtitle">
                       {{ block.settings.slide_subheading | escape }}
                     </p>
@@ -176,15 +182,20 @@
     </div>
     {%- if section.settings.home_hero_height == 'adapt' -%}
       <div class="hero__adapt-text-wrap wrapper" data-hero-adapt-text-wrap>
+        
+
         {%- for block in section.blocks -%}
-          <div class="hero__text-content hero__text-content--adapt text-center" data-index="{{ forloop.index0 }}" data-hero-text-content>
+          <div class="hero__text-content hero__text-content--adapt large-width-40pc" data-index="{{ forloop.index0 }}" data-hero-text-content>
             {%- unless block.settings.slide_subheading == blank -%}
-              <p class="hero__subtitle">
-                {{ block.settings.slide_subheading | escape }}
-              </p>
+              <div class="{{textMarginClass}}">
+
+                <p class="hero__subtitle">
+                  {{ block.settings.slide_subheading | escape }}
+                </p>
+              </div>
             {%- endunless -%}
             {%- unless block.settings.slide_heading == blank -%}
-            <div class="large-width-40pc">
+            <div class="large-width-40pc {{ textMarginClass }}">
               <h2 class="hero__title h1">
                 {{ block.settings.slide_heading | escape }}
               </h2>
