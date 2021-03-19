@@ -14,7 +14,7 @@
     <div class="wrapper">
         <div class="feature-row medium-row-responsive margin-vertical-small">
             {%- for block in section.blocks -%}
-                <img class="lazyload" 
+                <img class="lazyload small-margin-xsmall-bottom" 
                     src="{{ block.settings.logo | img_url: '150x' }}" 
                     alt="{{ block.settings.logo.alt | escape }}">
             {%- endfor -%}

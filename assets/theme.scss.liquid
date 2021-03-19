@@ -5035,10 +5035,20 @@ $shadow: 0px 3px 6px rgba(0, 0, 0, .29);
 }
 
 .medium-margin-xsmall-bottom {
-  margin-bottom: $marginXsmall;
+  @include at-query($max, $medium) {
+    margin-bottom: $marginXsmall;
+  }
+}
 
-  @include at-query($min, $medium) {
-    margin-bottom: none;
+.medium-margin-xsmall-bottom {
+  @include at-query($max, $medium) {
+    margin-bottom: $marginXsmall;
+  }
+}
+
+.small-margin-xsmall-bottom {
+  @include at-query($max, $medium) {
+    margin-bottom: $marginXsmall;
   }
 }
 
