@@ -124,6 +124,9 @@
           {% if block.settings.text_alignment == "center" %}
             {% assign textMarginClass = "margin-horizontal-auto" %}
           {% endif %}
+          {% if block.settings.text_alignment == "right" %}
+            {% assign textMarginClass = "margin-left-auto" %}
+          {% endif %}
 
 
           <div class="hero__text-wrap{% if block.settings.image_overlay %} slideshow__overlay{% endif %}">

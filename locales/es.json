@@ -236,6 +236,7 @@
       "email": "Correo electrónico",
       "password": "Contraseña",
       "password_confirm": "Confirmar contraseña",
+      "no_password_match": "Error: Las contraseñas no coinciden.",
       "submit": "Crear",
       "cancel": "Volver a la tienda"
     }

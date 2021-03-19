@@ -78,8 +78,11 @@
 
       {% assign footer_column_width = 'large--one-quarter medium--one-half small--one-whole' %}      
       <div class="grid__item {{ footer_column_width }}">
-        <img class="site-header__logo-image" src="{{ section.settings.logo | img_url: image_size }}" srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x" alt="{{ section.settings.logo.alt | default: shop.name }}" itemprop="logo">
-        <img class="site-header__logo-image site-header__logo-image--transparent" src="{{ transparent_logo | img_url: image_size }}" srcset="{{ transparent_logo | img_url: image_size }} 1x, {{ transparent_logo | img_url: image_size, scale: 2 }} 2x" alt="{{ section.settings.logo.alt | default: shop.name }}" itemprop="logo">
+        <ul class="no-bullets site-footer__linklist">
+          <li>
+            <img class="site-header__logo-image" src="{{ section.settings.logo | img_url: '256x' }}" alt="{{ section.settings.logo.alt | default: shop.name }}" itemprop="logo">
+          </li>
+        </ul>
       </div>
       
 
@@ -243,7 +246,11 @@
     "zh-TW": "頁尾"
   },
   "settings": [
-    {
+  {
+    "type": "image_picker",
+    "id": "logo",
+    "label": "Logotipo"
+  }, {
       "type": "header",
       "content": {
         "cs": "Platební metody",
