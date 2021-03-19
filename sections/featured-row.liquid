@@ -1,4 +1,4 @@
-<div style="background-color: {{ section.settings.background_color }}">
+<div style="background-color: {{ section.settings.background_color }}" id="{{section.settings.landmark_id}}">
   <div class="wrapper medium-padding-bottom-xsmall">
     <div class="page-width feature-row">
       {% capture media_layout %}
@@ -79,6 +79,10 @@
   },
   "settings": [
     {
+      "type": "text",
+      "id": "landmark_id",
+      "label": "Id de sección"
+    },{
       "type": "image_picker",
       "id": "image",
       "label": {
