@@ -4822,6 +4822,7 @@ $disclosure-list-large: 1100px;
   align-items: flex-start;
 }
 
+
 .flex-center {
   align-items: center;
 }
@@ -4862,10 +4863,24 @@ $disclosure-list-large: 1100px;
   margin-bottom: $marginXsmall;
 }
 
+.padding-small {
+  padding: $marginSmall;
+}
+
+.padding-xsmall {
+  padding: $marginXsmall;
+}
+
+.padding-horizontal-xxsmall {
+  padding-left: $marginXxsmall;
+  padding-right: $marginXxsmall;
+}
+
 .padding-horizontal-xsmall {
   padding-left: $marginXsmall;
   padding-right: $marginXsmall;
 }
+
 
 .padding-bottom-xsmall {
   padding-bottom: $marginXsmall;
@@ -4923,10 +4938,8 @@ $disclosure-list-large: 1100px;
 }
 
 .medium-padding-bottom-xsmall {
-  padding-bottom: $marginXsmall;
-
-  @include at-query($min, $medium) {
-    padding-bottom: none;
+  @include at-query($max, $medium) {
+    padding-bottom: $marginXsmall;
   }
 }
 
@@ -5342,6 +5355,12 @@ input.invisible-option.face-option:checked + label > div {
   display: grid;
 }
 
+@for $i from 1 through 12 {
+  .flex-#{$i} {
+    flex: #{$i};
+  }
+}
+
 @for $i from 1 through 6 {
   .grid-columns-#{$i} {
     grid-template-columns: repeat(#{$i}, 1fr);
@@ -5431,3 +5450,24 @@ input.invisible-option.face-option:checked + label > div {
 .d-none {
   display: none;
 }
+
+.no-margin {
+  margin: 0;
+}
+
+.fill-wine {
+  fill: #A01450;
+}
+
+.bottom-0 {
+  bottom: 0;
+}
+
+.left-0 {
+  left: 0;
+}
+
+.right-0 {
+  right: 0;
+}
+

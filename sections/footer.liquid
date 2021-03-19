@@ -205,6 +205,7 @@
       {% if linklists[section.settings.legal_link_list].links.size > 0 %}
         <div class="grid__item {{ footer_column_width }}">
           <ul class="no-bullets site-footer__linklist">
+            <li>Legal</li>
             {% for link in linklists[section.settings.legal_link_list].links %}
               <li><a href="{{ link.url }}">{{ link.title }}</a></li>
             {% endfor %}

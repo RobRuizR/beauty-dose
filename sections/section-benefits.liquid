@@ -13,19 +13,25 @@
     </div>
     <div class="feature-row row-responsive flex-start">
       <div class="flex flex-column benefit-item medium-padding-horizontal-xsmall">
-        <div class="feature-row__item medium-radius hide-overflow image margin-xsmall-bottom">
-          {% if section.settings.image != blank %}
+        <div class="feature-row__item image margin-xsmall-bottom">
+          {% if section.settings.image_1 != blank %}
             <noscript>
-              {{ section.settings.image | img_url: '400x300' | img_tag: section.settings.image.alt, 'feature-row__image-no-js' }}
+              {{ section.settings.image_1 | img_url: '400x300' | img_tag: section.settings.image_1.alt, 'feature-row__image-no-js' }}
             </noscript>
-            <div class="feature-row__image-wrapper" style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100}}%;">
-              {% assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
-              <img class="feature-row__image lazyload" src="{{ section.settings.image_1 | img_url: '400x300', crop: 'center' }}" data-src="{{ img_url }}" data-widths="[360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]" data-aspectratio="{{ section.settings.image.aspect_ratio }}" data-sizes="auto" alt="{{ section.settings.image.alt | escape }}">
+            <div class="feature-row__image-wrapper position-relative" style="padding-top:{{ 1 | divided_by: section.settings.image_1.aspect_ratio | times: 100}}%;">
+              {% assign img_url = section.settings.image_1 | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+              <img class="feature-row__image medium-radius lazyload" src="{{ section.settings.image_1 | img_url: '400x300', crop: 'center' }}" data-src="{{ img_url }}" data-widths="[360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]" data-aspectratio="{{ section.settings.image_2.aspect_ratio }}" data-sizes="auto" alt="{{ section.settings.image_2.alt | escape }}">
+              <div class="position-absolute flex align-center justify-center bottom-0 margin-horizontal-auto left-0 right-0">
+                <div class="padding-xsmall full-radius" style="transform: translateY(50%); background-color: #fdf5ef;" >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="40.916" height="40.918" viewBox="0 0 40.916 40.918"><defs><style>.a{fill:#d6514d;}</style></defs><path class="a" d="M221.634-483.5a3.248,3.248,0,0,1-3.245-3.244v-1.346H199.628v1.346a3.248,3.248,0,0,1-3.245,3.244,3.248,3.248,0,0,1-3.245-3.244v-1.9l-.1-.057a4.4,4.4,0,0,1-2.2-3.781v-10.451l-.079-.06a5.559,5.559,0,0,1-2.216-4.408,5.534,5.534,0,0,1,1.952-4.221,5.524,5.524,0,0,1,2.9-1.242l.137-.017.031-.135a14.617,14.617,0,0,1,14.292-11.4h2.3a14.614,14.614,0,0,1,14.291,11.4l.031.136.139.017c.071.008.142.013.212.017a1.969,1.969,0,0,1,.287.031,5.554,5.554,0,0,1,4.184,4.038,5.565,5.565,0,0,1-2.048,5.787l-.079.06v10.451a4.4,4.4,0,0,1-2.2,3.781l-.1.057v1.9A3.248,3.248,0,0,1,221.634-483.5Zm-1.349-3.244a1.348,1.348,0,0,0,1.346,1.346,1.348,1.348,0,0,0,1.346-1.346v-1.346h-2.692Zm-25.248,0a1.348,1.348,0,0,0,1.346,1.346,1.348,1.348,0,0,0,1.346-1.346v-1.346h-2.692Zm-.953-24.3a3.588,3.588,0,0,0-2.354.867,3.637,3.637,0,0,0-1.284,2.775,3.6,3.6,0,0,0,1.824,3.134.953.953,0,0,1,.472.82v10.966a2.5,2.5,0,0,0,2.494,2.494h27.544a2.5,2.5,0,0,0,2.494-2.494v-10.966a.951.951,0,0,1,.472-.82,3.61,3.61,0,0,0,1.709-4.061,3.619,3.619,0,0,0-2.729-2.631,3.933,3.933,0,0,0-.8-.085,3.594,3.594,0,0,0-2.288.814,3.629,3.629,0,0,0-1.348,2.828v6.09l.132.047a3.248,3.248,0,0,1,2.163,3.044,3.248,3.248,0,0,1-3.244,3.244H198.678a3.248,3.248,0,0,1-3.244-3.244,3.247,3.247,0,0,1,2.163-3.044l.132-.047v-5.844a3.808,3.808,0,0,0-3.023-3.836A3.882,3.882,0,0,0,194.084-511.041Zm4.595,11.477a1.348,1.348,0,0,0-1.346,1.346,1.348,1.348,0,0,0,1.346,1.346h20.658a1.348,1.348,0,0,0,1.346-1.346,1.348,1.348,0,0,0-1.346-1.346Zm9.181-22.953a12.624,12.624,0,0,0-7.845,2.69,12.909,12.909,0,0,0-4.513,6.89l-.048.185.184.055a5.754,5.754,0,0,1,3.991,5.544v5.691h18.76V-507.4a5.52,5.52,0,0,1,2.049-4.3,5.5,5.5,0,0,1,1.941-.99l.185-.054-.049-.187A12.913,12.913,0,0,0,218-519.827a12.624,12.624,0,0,0-7.848-2.691Z" transform="translate(-188.548 524.416)"/></svg>
+                </div>
+              </div>
             </div>
           {% else %}
             {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
           {% endif %}
         </div>
+          <div class="padding-vertical-xsmall"></div>
         <div class="bold color-main text-center">
           {{ section.settings.name_1 | escape }}
         </div>
@@ -34,19 +40,25 @@
         </div>
       </div>
       <div class="flex flex-column benefit-item medium-padding-horizontal-xsmall">
-        <div class="feature-row__item medium-radius hide-overflow image margin-xsmall-bottom">
-          {% if section.settings.image != blank %}
+        <div class="feature-row__item image margin-xsmall-bottom">
+          {% if section.settings.image_2 != blank %}
             <noscript>
-              {{ section.settings.image | img_url: '400x300' | img_tag: section.settings.image.alt, 'feature-row__image-no-js' }}
+              {{ section.settings.image_2 | img_url: '400x300' | img_tag: section.settings.image_2.alt, 'feature-row__image-no-js' }}
             </noscript>
-            <div class="feature-row__image-wrapper" style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100}}%;">
-              {% assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
-              <img class="feature-row__image lazyload" src="{{ section.settings.image_2 | img_url: '400x300', crop: 'center' }}" data-src="{{ img_url }}" data-widths="[360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]" data-aspectratio="{{ section.settings.image.aspect_ratio }}" data-sizes="auto" alt="{{ section.settings.image.alt | escape }}">
+            <div class="feature-row__image-wrapper position-relative" style="padding-top:{{ 1 | divided_by: section.settings.image_2.aspect_ratio | times: 100}}%;">
+              {% assign img_url = section.settings.image_2 | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+              <img class="feature-row__image medium-radius lazyload" src="{{ section.settings.image_2 | img_url: '400x300', crop: 'center' }}" data-src="{{ img_url }}" data-widths="[360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]" data-aspectratio="{{ section.settings.image_2.aspect_ratio }}" data-sizes="auto" alt="{{ section.settings.image_2.alt | escape }}">
+              <div class="position-absolute flex align-center justify-center bottom-0 margin-horizontal-auto left-0 right-0">
+                <div class="padding-xsmall full-radius" style="transform: translateY(50%); background-color: #fdf5ef;" >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="37.735" height="37.735" viewBox="0 0 37.735 37.735"><defs><style>.a{fill:#d6514d;}</style></defs><g transform="translate(0)"><path class="a" d="M739.079-470.653a18.889,18.889,0,0,1-18.868-18.868,18.889,18.889,0,0,1,18.868-18.868,18.889,18.889,0,0,1,18.868,18.868A18.889,18.889,0,0,1,739.079-470.653Zm0-35.749A16.9,16.9,0,0,0,722.2-489.52a16.9,16.9,0,0,0,16.881,16.881A16.9,16.9,0,0,0,755.96-489.52,16.9,16.9,0,0,0,739.079-506.4Z" transform="translate(-720.211 508.388)"/><path class="a" d="M900.211-424.259v-12.129H902.2v11.307l6.718,6.719-1.4,1.4Z" transform="translate(-882.337 443.538)"/></g></svg>
+                </div>
+              </div>
             </div>
           {% else %}
             {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
           {% endif %}
         </div>
+          <div class="padding-vertical-xsmall"></div>
         <div class="bold color-main text-center">
           {{ section.settings.name_2 | escape }}
         </div>
@@ -55,19 +67,25 @@
         </div>
       </div>
       <div class="flex flex-column benefit-item medium-padding-horizontal-xsmall">
-        <div class="feature-row__item medium-radius hide-overflow image margin-xsmall-bottom">
-          {% if section.settings.image != blank %}
+        <div class="feature-row__item medium-radiusimage margin-xsmall-bottom">
+          {% if section.settings.image_3 != blank %}
             <noscript>
-              {{ section.settings.image | img_url: '400x300' | img_tag: section.settings.image.alt, 'feature-row__image-no-js' }}
+              {{ section.settings.image_3 | img_url: '400x300' | img_tag: section.settings.image_3.alt, 'feature-row__image-no-js' }}
             </noscript>
-            <div class="feature-row__image-wrapper" style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100}}%;">
-              {% assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
-              <img class="feature-row__image lazyload" src="{{ section.settings.image_3 | img_url: '400x300', crop: 'center' }}" data-src="{{ img_url }}" data-widths="[360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]" data-aspectratio="{{ section.settings.image.aspect_ratio }}" data-sizes="auto" alt="{{ section.settings.image.alt | escape }}">
+            <div class="feature-row__image-wrapper position-relative" style="padding-top:{{ 1 | divided_by: section.settings.image_3.aspect_ratio | times: 100}}%;">
+              {% assign img_url = section.settings.image_3 | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
+              <img class="feature-row__image medium-radius lazyload" src="{{ section.settings.image_3 | img_url: '400x300', crop: 'center' }}" data-src="{{ img_url }}" data-widths="[360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]" data-aspectratio="{{ section.settings.image_3.aspect_ratio }}" data-sizes="auto" alt="{{ section.settings.image_3.alt | escape }}">
+              <div class="position-absolute flex align-center justify-center bottom-0 margin-horizontal-auto left-0 right-0">
+                <div class="padding-xsmall full-radius" style="transform: translateY(50%); background-color: #fdf5ef;" >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="47.426" height="47.426" viewBox="0 0 47.426 47.426"><defs><style>.a{fill:#d6514d;}</style></defs><path class="a" d="M1284.853-452.9h-5.928c-1.383,0-2.964-1.186-2.964-3.557v-4.149a6.862,6.862,0,0,0-2.569-5.138,13.658,13.658,0,0,1-5.335-11.066,14.063,14.063,0,0,1,13.635-13.635,13.886,13.886,0,0,1,9.88,3.952,14.068,14.068,0,0,1,4.15,9.88,13.287,13.287,0,0,1-5.138,10.67,7.216,7.216,0,0,0-2.766,5.533v4.545a3.039,3.039,0,0,1-2.964,2.964Zm-2.964-35.569a12.12,12.12,0,0,0-11.856,11.659,11.615,11.615,0,0,0,4.545,9.485,8.613,8.613,0,0,1,3.359,6.719v4.149c0,.4,0,1.581.988,1.581h5.928a.933.933,0,0,0,.988-.988v-4.545a9.6,9.6,0,0,1,3.557-7.113,11.525,11.525,0,0,0,4.347-9.09,11.813,11.813,0,0,0-3.557-8.5,11.647,11.647,0,0,0-8.3-3.359Zm0,0" transform="translate(-1258.176 500.327)"/><path class="a" d="M1358.521-189.981h-9.88a.933.933,0,0,1-.988-.988.933.933,0,0,1,.988-.988h9.88a.933.933,0,0,1,.988.988.933.933,0,0,1-.988.988Zm0,0" transform="translate(-1329.869 231.478)"/><path class="a" d="M1398.39-584.016a.933.933,0,0,1-.988-.988v-3.952a.933.933,0,0,1,.988-.988.933.933,0,0,1,.988.988V-585a.933.933,0,0,1-.988.988Zm0,0" transform="translate(-1374.677 589.944)"/><path class="a" d="M1530.821-516.649a1.186,1.186,0,0,1-.79-.2.955.955,0,0,1,0-1.383L1532.8-521a.954.954,0,0,1,1.383,0,.954.954,0,0,1,0,1.383l-2.766,2.766a1.988,1.988,0,0,1-.593.2Zm0,0" transform="translate(-1493.869 528.11)"/><path class="a" d="M1591.386-359.125h-3.952a.933.933,0,0,1-.988-.988.933.933,0,0,1,.988-.988h3.952a.933.933,0,0,1,.988.988.933.933,0,0,1-.988.988Zm0,0" transform="translate(-1544.949 383.826)"/><path class="a" d="M1533.588-222.138a1.189,1.189,0,0,1-.791-.2l-2.766-2.766a.956.956,0,0,1,0-1.384.955.955,0,0,1,1.383,0l2.766,2.767a.954.954,0,0,1,0,1.383c0,.2-.2.2-.592.2Zm0,0" transform="translate(-1493.869 262.845)"/><path class="a" d="M1236.309-222.138a1.187,1.187,0,0,1-.79-.2.955.955,0,0,1,0-1.383l2.766-2.767a.956.956,0,0,1,1.384,0,.956.956,0,0,1,0,1.384l-2.767,2.766a.725.725,0,0,1-.593.2Zm0,0" transform="translate(-1228.603 262.845)"/><path class="a" d="M1173.5-359.125h-3.952a.933.933,0,0,1-.988-.988.933.933,0,0,1,.988-.988h3.952a.933.933,0,0,1,.988.988.933.933,0,0,1-.988.988Zm0,0" transform="translate(-1168.559 383.826)"/><path class="a" d="M1239.076-518.439a1.188,1.188,0,0,1-.791-.2l-2.766-2.964a.955.955,0,0,1,0-1.383.955.955,0,0,1,1.383,0l2.767,2.766a.956.956,0,0,1,0,1.384c-.2.2-.4.4-.593.4Zm0,0" transform="translate(-1228.603 529.9)"/><path class="a" d="M1406.294-430.819a.933.933,0,0,1-.988-.988,7,7,0,0,0-6.916-6.916.933.933,0,0,1-.988-.988.933.933,0,0,1,.988-.988,8.855,8.855,0,0,1,8.892,8.892.933.933,0,0,1-.988.988Zm0,0" transform="translate(-1374.677 455.519)"/></svg>
+                </div>
+              </div>
             </div>
           {% else %}
             {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
           {% endif %}
         </div>
+          <div class="padding-vertical-xsmall"></div>
         <div class="bold color-main text-center">
           {{ section.settings.name_3 | escape }}
         </div>
@@ -114,6 +132,10 @@
       "id": "image_1",
       "label": "Imagen"
     }, {
+      "type": "image_picker",
+      "id": "icon_1",
+      "label": "Icono"
+    }, {
       "type": "text",
       "id": "name_2",
       "label": "Beneficio 2",
@@ -128,6 +150,10 @@
       "id": "image_2",
       "label": "Imagen"
     }, {
+      "type": "image_picker",
+      "id": "icon_2",
+      "label": "Icono"
+    }, {
       "type": "text",
       "id": "name_3",
       "label": "Beneficio 3",
@@ -141,6 +167,10 @@
       "type": "image_picker",
       "id": "image_3",
       "label": "Imagen"
+    }, {
+      "type": "image_picker",
+      "id": "icon_3",
+      "label": "Icono"
     }
   ],
   "presets": [

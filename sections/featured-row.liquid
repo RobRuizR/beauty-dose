@@ -32,6 +32,10 @@
           {% if section.settings.text != blank %}
             <div class="rte-setting featured-row__subtext text-center">{{ section.settings.text }}</div>
           {% endif %}
+          {% unless section.settings.html_content == blank %}
+            {{ section.settings.html_content }}
+          {% endunless %}
+          
           {% if section.settings.button_label != blank and section.settings.button_link != blank %}
             <a href="{{ section.settings.button_link }}" class="btn button-secondary button-stretch">
               {{ section.settings.button_label | escape }}
@@ -309,6 +313,11 @@
         "zh-CN": "按钮标签",
         "zh-TW": "按鈕標籤"
       }
+    },{
+      "type": "html",
+      "id": "html_content",
+      "label": "Contenido HTML",
+      "default": "<div></div>"
     }, {
       "type": "url",
       "id": "button_link",
