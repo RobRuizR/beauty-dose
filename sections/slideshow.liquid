@@ -18,55 +18,46 @@
     Change the hero slideshow's dots color based on the slides' text color.
   {% endcomment %}
   {%- style -%}
-    .hero-{{ section.id }} {
-      height: {{- wrapper_height -}}vw !important;
-      overflow: hidden;
-    }
-    .hero-{{ section.id }} .slick-track,
-    .hero-{{ section.id }} .slideshow__overlay:before {
-      height: {{- wrapper_height -}}vw;
-    }
-  {%- endstyle -%}
+
+.hero-{{section.id}}{
+  height: {{- wrapper_height -}}vw !important;
+  overflow: hidden;
+}
+
+.hero-{{section.id}}.slick-track,
+.hero-{{section.id}}.slideshow__overlay:before {
+  height: {{- wrapper_height -}}vw;
+}
+
+{%- endstyle -%}
 {%- endif -%}
 
-<div id="HeroWrapper-{{ section.id }}"{% if section.settings.home_hero_height == 'adapt' %} class="hero--adapt"{% endif %} data-section-id="{{ section.id }}" data-section-type="slideshow-section">
+<div id="HeroWrapper-{{ section.id }}" {% if section.settings.home_hero_height == 'adapt' %} class="hero--adapt" {% endif %} data-section-id="{{ section.id }}" data-section-type="slideshow-section">
   {%- if section.blocks.size > 0 -%}
-    <div class="hero-{{ section.id }} hero"
-         id="Hero-{{ section.id }}"
-         aria-label="slideshow"
-         aria-describedby="a11y-slideshow-info"
-         tabindex="-1"
-         role="region"
-         data-autoplay="{{ section.settings.hero_home_auto }}"
-         data-autoplayspeed="{{ section.settings.home_hero_auto_speed | times: 1000 }}"
-         data-adapt="{% if section.settings.home_hero_height == 'adapt' %}true{% else %}false{% endif %}"
-         data-slide-nav-a11y="{{ 'home_page.slideshow.load_slide' | t: slide_number: '[slide_number]' }}"
-         data-slide-nav-active-a11y="{{ 'home_page.slideshow.active_slide' | t: slide_number: '[slide_number]' }}"
-         data-slide-index="0">
+    <div class="hero-{{ section.id }} hero" id="Hero-{{ section.id }}" aria-label="slideshow" aria-describedby="a11y-slideshow-info" tabindex="-1" role="region" data-autoplay="{{ section.settings.hero_home_auto }}" data-autoplayspeed="{{ section.settings.home_hero_auto_speed | times: 1000 }}" data-adapt="{% if section.settings.home_hero_height == 'adapt' %}true{% else %}false{% endif %}" data-slide-nav-a11y="{{ 'home_page.slideshow.load_slide' | t: slide_number: '[slide_number]' }}" data-slide-nav-active-a11y="{{ 'home_page.slideshow.active_slide' | t: slide_number: '[slide_number]' }}" data-slide-index="0">
       {%- for block in section.blocks -%}
         {%- style -%}
-          #HeroWrapper-{{ section.id }} .hero--color-{{ forloop.index0 }} .hero__pause,
-          #HeroWrapper-{{ section.id }} .hero--color-{{ forloop.index0 }} .hero__pause .icon:before,
-          #HeroWrapper-{{ section.id }} .hero--color-{{ forloop.index0 }} .slick-prev .icon:before,
-          #HeroWrapper-{{ section.id }} .hero--color-{{ forloop.index0 }} .slick-next .icon:before,
-          #HeroWrapper-{{ section.id }} .hero--color-{{ forloop.index0 }} .slide--{{ block.id }} {
-            color: {{ block.settings.slide_text_color }};
-          }
-          #HeroWrapper-{{ section.id }} .hero--color-{{ forloop.index0 }} .slick-dots li a:before {
-            background: transparent;
-            border-color: {{ block.settings.slide_text_color }};
-          }
-          #HeroWrapper-{{ section.id }} .hero--color-{{ forloop.index0 }} li.slick-active a:before {
-            background: {{ block.settings.slide_text_color }};
-            border-color: transparent;
-          }
-          #HeroWrapper-{{ section.id }} .hero--color-{{ forloop.index0 }} .hero__pause .icon {
-            fill: {{ block.settings.slide_text_color }};
-          }
-          #HeroWrapper-{{ section.id }} .slide--{{ block.id }} .hero__text-wrap {
-            text-align: {{ block.settings.text_alignment }}
-          }
-        {%- endstyle -%}
+
+#HeroWrapper-{{section.id}}.hero--color-{{forloop.index0}}.hero__pause, #HeroWrapper-{{section.id}}.hero--color-{{forloop.index0}}.hero__pause .icon: before, #HeroWrapper-{{section.id}}.hero--color-{{forloop.index0}}.slick-prev .icon: before, #HeroWrapper-{{section.id}}.hero--color-{{forloop.index0}}.slick-next .icon: before, #HeroWrapper-{{section.id}}.hero--color-{{forloop.index0}}.slide--{{block.id}}{
+  color: {{block.settings.slide_text_color}};
+}
+
+#HeroWrapper-{{section.id}}.hero--color-{{forloop.index0}}.slick-dots li a:before {
+  background: transparent;
+  border-color: {{block.settings.slide_text_color}};
+}
+
+#HeroWrapper-{{section.id}}.hero--color-{{forloop.index0}}li.slick-active a:before {
+  background: {{block.settings.slide_text_color}};
+  border-color: transparent;
+}
+#HeroWrapper-{{section.id}}.hero--color-{{forloop.index0}}.hero__pause .icon {
+  fill: {{block.settings.slide_text_color}};
+}
+#HeroWrapper-{{section.id}}.slide--{{block.id}}.hero__text-wrap {
+  text-align: {{block.settings.text_alignment}}}
+
+{%- endstyle -%}
         {%- comment -%}
           Apply a color overlay on a per-slide basis. The overlay is defined by
           a linear gradient with 4 points along it. The last 3 points cause the
@@ -80,60 +71,46 @@
         {%- endcomment -%}
         {%- if block.settings.image_overlay -%}
           {%- style -%}
-            .slide--{{ block.id }} .slideshow__overlay:before {
-              {%- assign opacity_alpha = block.settings.image_overlay_opacity | divided_by: 100.00 -%}
-              {%- assign opacity_alpha_3 = opacity_alpha | plus: 0.25 | at_most: 1.0 -%}
-              {%- assign opacity_alpha_2 = opacity_alpha_3 | minus: opacity_alpha | divided_by: 2.0 | plus: opacity_alpha -%}
-              background-image: linear-gradient(to bottom,
-                                                {{ '#000' | color_modify: 'alpha', opacity_alpha }},
-                                                {{ '#000' | color_modify: 'alpha', opacity_alpha }} calc(100% - 150px),
-                                                {{ '#000' | color_modify: 'alpha', opacity_alpha_2 }} calc(100% - 60px),
-                                                {{ '#000' | color_modify: 'alpha', opacity_alpha_3 }});
-            }
-          {%- endstyle -%}
+
+.slide--{{block.id}}.slideshow__overlay:before {
+  {%- assign opacity_alpha = block.settings.image_overlay_opacity | divided_by: 100.00 -%}{%- assign opacity_alpha_3 = opacity_alpha | plus: 0.25 | at_most: 1.0 -%}{%- assign opacity_alpha_2 = opacity_alpha_3 | minus: opacity_alpha | divided_by: 2.0 | plus: opacity_alpha -%}background-image: linear-gradient(to bottom, {{ '#000' | color_modify: 'alpha', opacity_alpha }}, {{ '#000' | color_modify: 'alpha', opacity_alpha }} calc(100% - 150px), {{ '#000' | color_modify: 'alpha', opacity_alpha_2 }} calc(100% - 60px), {{ '#000' | color_modify: 'alpha', opacity_alpha_3 }});
+}
+
+{%- endstyle -%}
         {%- endif -%}
-        <div class="hero__slide slide--{{ block.id }}{% if block.settings.image == blank %} slide--placeholder{% endif %}"
-              data-hero-slide
-              {{ block.shopify_attributes }}>
+        <div class="hero__slide slide--{{ block.id }}{% if block.settings.image == blank %} slide--placeholder{% endif %}" data-hero-slide {{ block.shopify_attributes }}>
           {%- if block.settings.image == blank -%}
             <div class="placeholder-background">
-              {%- capture current -%}{% cycle 1, 2 %}{%- endcapture -%}
+              {%- capture current -%}
+                {% cycle 1, 2 %}
+              {%- endcapture -%}
               {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
             </div>
           {%- else -%}
             <noscript>
               {%- if forloop.first == true -%}
-                <div class="hero__image-no-js"{% if block.settings.image %} style="background-image: url('{{ block.settings.image | img_url: '2048x' }}');"{% endif %}></div>
+                <div class="hero__image-no-js" {% if block.settings.image %} style="background-image: url('{{ block.settings.image | img_url: '2048x' }}');" {% endif %}></div>
               {%- endif -%}
             </noscript>
             {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-            <img class="hero__image hero__image--{{ block.id }} lazyload fade-in{% unless forloop.first == true %} lazypreload{% endunless %}"
-              {%- if forloop.first == true -%}
-                src="{{ block.settings.image | img_url: '300x' }}"
-              {%- endif -%}
-              data-src="{{ img_url }}"
-              data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048, 4472]"
-              data-aspectratio="{{ block.settings.image.aspect_ratio }}"
-              data-sizes="auto"
-              data-parent-fit="cover"
-              data-hero-image
-              alt="{{ block.settings.image.alt | escape }}"
-              style="object-position: {{ block.settings.image_position }}">
+            <img class="hero__image hero__image--{{ block.id }} lazyload fade-in{% unless forloop.first == true %} lazypreload{% endunless %}" {%- if forloop.first == true -%} src="{{ block.settings.image | img_url: '300x' }}" {%- endif -%} data-src="{{ img_url }}" data-widths="[540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048, 4472]" data-aspectratio="{{ block.settings.image.aspect_ratio }}" data-sizes="auto" data-parent-fit="cover" data-hero-image alt="{{ block.settings.image.alt | escape }}" style="object-position: {{ block.settings.image_position }}">
           {%- endif -%}
           {% assign textMarginClass = "" %}
+          {% assign buttonAlignmentClass = "" %}
           {% if block.settings.text_alignment == "center" %}
-            {% assign textMarginClass = "margin-horizontal-auto" %}
+            {% assign textMarginClass = "margin-horizontal-auto text-center" %}
+            {% assign buttonAlignmentClass = "flex justify-center" %}
           {% endif %}
           {% if block.settings.text_alignment == "right" %}
             {% assign textMarginClass = "margin-left-auto" %}
+            {% assign buttonAlignmentClass = "flex justify-end" %}
           {% endif %}
-
 
           <div class="hero__text-wrap{% if block.settings.image_overlay %} slideshow__overlay{% endif %}">
             <div class="hero__text-align wrapper">
               <div class="hero__text-content" data-hero-text-content>
                 {%- unless block.settings.slide_heading == blank -%}
-                  
+
                   <div class="large-width-40pc {{ textMarginClass }}">
                     <h2 class="hero__title h1">
                       {{ block.settings.slide_heading | escape }}
@@ -148,9 +125,11 @@
                   </div>
                 {%- endunless -%}
                 {%- if block.settings.button_label != blank and block.settings.button_link != blank -%}
-                  <a href="{{ block.settings.button_link }}"  style="color: {{ block.settings.slide_button_label_color }}; background-color: {{ block.settings.slide_button_background_color }}" class="btn hero__cta button-stretch">
-                    {{ block.settings.button_label | escape }}
-                  </a>
+                  <div class="{{ buttonAlignmentClass }}">
+                    <a href="{{ block.settings.button_link }}" style="color: {{ block.settings.slide_button_label_color }}; background-color: {{ block.settings.slide_button_background_color }}" class="btn hero__cta button-stretch">
+                      {{ block.settings.button_label | escape }}
+                    </a>
+                  </div>
                 {%- endif -%}
               </div>
             </div>
@@ -162,29 +141,28 @@
         <div class="hero__controls wrapper">
           {%- if section.settings.hero_home_auto -%}
             <button class="hero__pause" aria-live="polite" aria-label="{{ 'home_page.slideshow.pause' | t }}" data-label-pause="{{ 'home_page.slideshow.pause' | t }}" data-label-play="{{ 'home_page.slideshow.play' | t }}" data-pause>
-              <span class="icon icon-pause" aria-hidden="true"></span>
-              <span class="icon icon-play" aria-hidden="true"></span>
+              <span aria-hidden="true" class="icon icon-pause"></span>
+              <span aria-hidden="true" class="icon icon-play"></span>
             </button>
           {%- endif -%}
           <ul>
             <li>
               <button class="slick-prev" aria-label="{{ 'home_page.slideshow.previous_slide' | t }}" data-slide-previous>
-                <span class="icon icon-slide-prev" aria-hidden="true"></span>
+                <span aria-hidden="true" class="icon icon-slide-prev"></span>
               </button>
             </li>
             <li>
               <button class="slick-next" aria-label="{{ 'home_page.slideshow.next_slide' | t }}" data-slide-next>
-                <span class="icon icon-slide-next" aria-hidden="true"></span>
+                <span aria-hidden="true" class="icon icon-slide-next"></span>
               </button>
             </li>
           </ul>
-          <div class="hero__dots-wrapper" data-hero-dots-wrapper></div>
         </div>
+        <div class="hero__dots-wrapper" data-hero-dots-wrapper></div>
       {%- endif -%}
     </div>
     {%- if section.settings.home_hero_height == 'adapt' -%}
       <div class="hero__adapt-text-wrap wrapper" data-hero-adapt-text-wrap>
-        
 
         {%- for block in section.blocks -%}
           <div class="hero__text-content hero__text-content--adapt large-width-40pc" data-index="{{ forloop.index0 }}" data-hero-text-content>
@@ -197,11 +175,11 @@
               </div>
             {%- endunless -%}
             {%- unless block.settings.slide_heading == blank -%}
-            <div class="large-width-40pc {{ textMarginClass }}">
-              <h2 class="hero__title h1">
-                {{ block.settings.slide_heading | escape }}
-              </h2>
-            </div>
+              <div class="large-width-40pc {{ textMarginClass }}">
+                <h2 class="hero__title h1">
+                  {{ block.settings.slide_heading | escape }}
+                </h2>
+              </div>
             {%- endunless -%}
             {%- if block.settings.button_label != blank and block.settings.button_link != blank -%}
               <a href="{{ block.settings.button_link }}" class="hero__cta btn">
@@ -216,6 +194,7 @@
 </div>
 
 {% schema %}
+
 {
   "name": {
     "cs": "Prezentace",
@@ -319,8 +298,7 @@
             "zh-CN": "全屏",
             "zh-TW": "全螢幕"
           }
-        },
-        {
+        }, {
           "value": "adapt",
           "label": {
             "cs": "Přizpůsobení prvnímu obrázku",
@@ -347,8 +325,7 @@
           }
         }
       ]
-    },
-    {
+    }, {
       "type": "checkbox",
       "id": "hero_home_auto",
       "label": {
@@ -375,8 +352,7 @@
         "zh-TW": "自動旋轉投影片"
       },
       "default": false
-    },
-    {
+    }, {
       "type": "range",
       "id": "home_hero_auto_speed",
       "label": {
@@ -486,8 +462,7 @@
       "blocks": [
         {
           "type": "slide"
-        },
-        {
+        }, {
           "type": "slide"
         }
       ]
@@ -546,8 +521,7 @@
             "zh-CN": "图片",
             "zh-TW": "圖片"
           }
-        },
-        {
+        }, {
           "type": "select",
           "id": "image_position",
           "label": {
@@ -600,8 +574,7 @@
                 "zh-TW": "左上角"
               },
               "value": "left top"
-            },
-            {
+            }, {
               "label": {
                 "cs": "Nahoře ve středu",
                 "da": "Øverst i midten",
@@ -626,8 +599,7 @@
                 "zh-TW": "中央上方"
               },
               "value": "center top"
-            },
-            {
+            }, {
               "label": {
                 "cs": "Nahoře vpravo",
                 "da": "Øverst til højre",
@@ -652,8 +624,7 @@
                 "zh-TW": "右上角"
               },
               "value": "right top"
-            },
-            {
+            }, {
               "label": {
                 "cs": "Uprostřed vlevo",
                 "da": "Midt på til venstre",
@@ -678,8 +649,7 @@
                 "zh-TW": "中央左方"
               },
               "value": "left center"
-            },
-            {
+            }, {
               "label": {
                 "cs": "Uprostřed ve středu",
                 "da": "Midt på centreret",
@@ -704,8 +674,7 @@
                 "zh-TW": "正中央"
               },
               "value": "center center"
-            },
-            {
+            }, {
               "label": {
                 "cs": "Uprostřed vpravo",
                 "da": "Midt på til højre",
@@ -730,8 +699,7 @@
                 "zh-TW": "中央右方"
               },
               "value": "right center"
-            },
-            {
+            }, {
               "label": {
                 "cs": "Dole vlevo",
                 "da": "Nederst til venstre",
@@ -756,8 +724,7 @@
                 "zh-TW": "左下角"
               },
               "value": "left bottom"
-            },
-            {
+            }, {
               "label": {
                 "cs": "Dole ve středu",
                 "da": "Nederst i midten",
@@ -782,8 +749,7 @@
                 "zh-TW": "中央下方"
               },
               "value": "center bottom"
-            },
-            {
+            }, {
               "label": {
                 "cs": "Dole vpravo",
                 "da": "Nederst til højre",
@@ -810,8 +776,7 @@
               "value": "right bottom"
             }
           ]
-        },
-        {
+        }, {
           "type": "checkbox",
           "id": "image_overlay",
           "label": {
@@ -838,8 +803,7 @@
             "zh-TW": "顯示疊加層"
           },
           "default": true
-        },
-        {
+        }, {
           "type": "range",
           "id": "image_overlay_opacity",
           "label": {
@@ -892,8 +856,7 @@
             "zh-TW": "%"
           },
           "default": 25
-        },
-        {
+        }, {
           "type": "header",
           "content": {
             "cs": "Text",
@@ -918,8 +881,7 @@
             "zh-CN": "文本",
             "zh-TW": "文字"
           }
-        },
-        {
+        }, {
           "type": "select",
           "id": "text_alignment",
           "label": {
@@ -971,8 +933,7 @@
                 "zh-CN": "左侧",
                 "zh-TW": "左方"
               }
-            },
-            {
+            }, {
               "value": "center",
               "label": {
                 "cs": "Na střed",
@@ -997,8 +958,7 @@
                 "zh-CN": "居中",
                 "zh-TW": "置中"
               }
-            },
-            {
+            }, {
               "value": "right",
               "label": {
                 "cs": "Doprava",
@@ -1026,8 +986,7 @@
             }
           ],
           "default": "center"
-        },
-        {
+        }, {
           "type": "text",
           "id": "slide_heading",
           "label": {
@@ -1076,8 +1035,7 @@
             "zh-CN": "主横幅",
             "zh-TW": "主頁橫幅"
           }
-        },
-        {
+        }, {
           "type": "text",
           "id": "slide_subheading",
           "label": {
@@ -1126,8 +1084,7 @@
             "zh-CN": "介绍性的",
             "zh-TW": "首次優惠"
           }
-        },
-        {
+        }, {
           "type": "text",
           "id": "button_label",
           "label": {
@@ -1176,8 +1133,7 @@
             "zh-CN": "立即购买",
             "zh-TW": "立即購物"
           }
-        },
-        {
+        }, {
           "type": "url",
           "id": "button_link",
           "label": {
@@ -1203,8 +1159,7 @@
             "zh-CN": "按钮链接",
             "zh-TW": "按鈕連結"
           }
-        },
-        {
+        }, {
           "type": "color",
           "id": "slide_text_color",
           "label": {
@@ -1231,8 +1186,7 @@
             "zh-TW": "文字和圖示"
           },
           "default": "#ffffff"
-        },
-        {
+        }, {
           "type": "color",
           "id": "slide_button_label_color",
           "label": {
@@ -1259,8 +1213,7 @@
             "zh-TW": "按鈕標籤"
           },
           "default": "#ffffff"
-        },
-        {
+        }, {
           "type": "color",
           "id": "slide_button_background_color",
           "label": {
@@ -1292,4 +1245,5 @@
     }
   ]
 }
+
 {% endschema %}

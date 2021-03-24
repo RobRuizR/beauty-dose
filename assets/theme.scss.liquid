@@ -5494,3 +5494,36 @@ input.invisible-option.face-option:checked + label > div {
 .shopify-payment-button__button--unbranded.shopify-payment-button__button--unbranded {
   border-radius: 5px;
 }
+
+.hero__controls {
+  max-width: 1250px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hero__dots-wrapper {
+  position: absolute;
+  bottom: 0;
+  margin: 0 auto;
+  width: 100%;
+
+  & > .slick-dots li a::before {
+    border: 1px solid #F67900;
+    background-color: transparent;
+  }
+
+  & .slick-active.slick-active > a::before {
+    background-color: #F67900;
+  }
+}
+
+.icon-slide-prev.icon-slide-prev:before { 
+  content: "‹";
+  font-family: 'Optima nova';
+  font-size: 3.2em;
+}
+.icon-slide-next.icon-slide-next:before { 
+  content: "›";
+  font-family: 'Optima nova';
+  font-size: 3.2em;
+}
