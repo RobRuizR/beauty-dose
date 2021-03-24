@@ -145,18 +145,19 @@
               <span aria-hidden="true" class="icon icon-play"></span>
             </button>
           {%- endif -%}
-          <ul>
-            <li>
-              <button class="slick-prev" aria-label="{{ 'home_page.slideshow.previous_slide' | t }}" data-slide-previous>
-                <span aria-hidden="true" class="icon icon-slide-prev"></span>
-              </button>
-            </li>
-            <li>
-              <button class="slick-next" aria-label="{{ 'home_page.slideshow.next_slide' | t }}" data-slide-next>
-                <span aria-hidden="true" class="icon icon-slide-next"></span>
-              </button>
-            </li>
-          </ul>
+          
+          <div class="position-absolute left-0 transform-half-up top-50">
+            <button class="slick-prev" aria-label="{{ 'home_page.slideshow.previous_slide' | t }}" data-slide-previous>
+              <span aria-hidden="true" class="icon icon-slide-prev"></span>
+            </button>
+          </div>
+        
+          <div class="position-absolute right-0 transform-half-up top-50">
+            <button class="slick-next" aria-label="{{ 'home_page.slideshow.next_slide' | t }}" data-slide-next>
+              <span aria-hidden="true" class="icon icon-slide-next"></span>
+            </button>
+          </div>
+            
         </div>
         <div class="hero__dots-wrapper" data-hero-dots-wrapper></div>
       {%- endif -%}
