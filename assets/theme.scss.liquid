@@ -5483,8 +5483,16 @@ input.invisible-option.face-option:checked + label > div {
   bottom: 0;
 }
 
-.top-50 {
-  top: 50%;
+.transform-half-up {
+  transform: translateY(-50%);
+}
+
+
+
+.medium-top-50 {
+  @include at-query($min, $medium) {
+    top: 50%;
+  }
 }
 
 .left-0 {
@@ -5530,4 +5538,7 @@ input.invisible-option.face-option:checked + label > div {
   content: "›";
   font-family: 'Optima nova';
   font-size: 3.2em;
+}
+.bg-white {
+  background-color: white;
 }
