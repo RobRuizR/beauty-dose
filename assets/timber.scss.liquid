@@ -454,8 +454,13 @@ $headerFontWeight: {{ header_family.weight }};
 $headerFontStyle: {{ header_family.style }};
 $headerBaseFontSize: {{ settings.type_header_base_size }};
 
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("{{ 'proxima-reg.otf' | asset_url }}") format("opentype");
+}
+
 // Body Font
-$bodyFontStack: {{ base_family.family }}, {{ base_family.fallback_families }};
+$bodyFontStack: "Proxima Nova", {{ base_family.family }}, {{ base_family.fallback_families }};
 $bodyFontWeight: {{ base_family.weight }};
 $bodyFontWeightBold: {{ base_family_bold.weight | default: 700 }};
 $bodyFontStyle: {{ base_family.style }};

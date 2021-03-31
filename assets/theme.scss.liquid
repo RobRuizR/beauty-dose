@@ -426,6 +426,11 @@ $color-blankstate: rgba($colorTextBody, 0.35);
 $color-blankstate-background: rgba($colorTextBody, 0.10);
 
 /*================ Typography ================*/
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("{{ 'proxima-reg.otf' | asset_url }}") format("opentype");
+}
+
 {%- assign accent_family = settings.type_accent_family -%}
 {%- assign base_family = settings.type_base_family -%}
 {%- assign header_family = settings.type_header_family -%}
@@ -451,7 +456,7 @@ $headerFontStyle: {{ header_family.style }};
 $headerBaseFontSize: {{ settings.type_header_base_size }};
 
 // Body Font
-$bodyFontStack: {{ base_family.family }}, {{ base_family.fallback_families }};
+$bodyFontStack: "Proxima Nova", {{ base_family.family }}, {{ base_family.fallback_families }};
 $bodyFontWeight: {{ base_family.weight }};
 $bodyFontWeightBold: {{ base_family_bold.weight | default: 700 }};
 $bodyFontStyle: {{ base_family.style }};
@@ -5541,4 +5546,8 @@ input.invisible-option.face-option:checked + label > div {
 }
 .bg-white {
   background-color: white;
+}
+
+.font-body.font-body {
+  font-family: $bodyFontStack;
 }

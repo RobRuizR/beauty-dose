@@ -119,7 +119,7 @@
                 {%- endunless -%}
                 {%- unless block.settings.slide_subheading == blank -%}
                   <div class="large-width-40pc {{ textMarginClass }}" style="color: {{block.settings.slide_text_color}}">
-                    <p class="hero__subtitle">
+                    <p class="hero__subtitle font-body">
                       {{ block.settings.slide_subheading | escape }}
                     </p>
                   </div>
@@ -170,7 +170,7 @@
             {%- unless block.settings.slide_subheading == blank -%}
               <div class="{{textMarginClass}}">
 
-                <p class="hero__subtitle">
+                <p class="hero__subtitle font-body">
                   {{ block.settings.slide_subheading | escape }}
                 </p>
               </div>
