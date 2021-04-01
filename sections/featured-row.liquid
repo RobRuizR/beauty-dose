@@ -24,20 +24,20 @@
 
         <div class="feature-row__item feature-row__text feature-row__text--{{ section.settings.layout }} flex flex-column flex-center">
           {% if section.settings.subtitle != blank %}
-            <div class="text-center bold color-main">{{ section.settings.subtitle | escape }}</div>
+            <div class="text-{{ section.settings.text_alignment }} bold color-main">{{ section.settings.subtitle | escape }}</div>
           {% endif %}
           {% if section.settings.title != blank %}
-            <h2 class="h3 text-center">{{ section.settings.title | escape }}</h2>
+            <h2 class="h3 text-{{ section.settings.text_alignment }}">{{ section.settings.title | escape }}</h2>
           {% endif %}
           {% if section.settings.text != blank %}
-            <div class="rte-setting featured-row__subtext text-center">{{ section.settings.text }}</div>
+            <div class="rte-setting featured-row__subtext text-{{ section.settings.text_alignment }}">{{ section.settings.text }}</div>
           {% endif %}
           {% unless section.settings.html_content == blank %}
             {{ section.settings.html_content }}
           {% endunless %}
-          
+
           {% if section.settings.button_label != blank and section.settings.button_link != blank %}
-            <a href="{{ section.settings.button_link }}" class="btn button-secondary button-stretch">
+            <a href="{{ section.settings.button_link }}" class="btn no-text-transform button-secondary button-stretch">
               {{ section.settings.button_label | escape }}
             </a>
           {% endif %}
@@ -82,7 +82,7 @@
       "type": "text",
       "id": "landmark_id",
       "label": "Id de sección"
-    },{
+    }, {
       "type": "image_picker",
       "id": "image",
       "label": {
@@ -238,6 +238,111 @@
         "zh-TW": "附文字的圖片"
       }
     }, {
+      "type": "select",
+      "id": "text_alignment",
+      "label": {
+        "cs": "Zarovnání textu",
+        "da": "Tekstjustering",
+        "de": "Textausrichtung",
+        "en": "Text alignment",
+        "es": "Alineación de texto",
+        "fi": "Tekstin tasaus",
+        "fr": "Alignement du texte",
+        "it": "Allineamento del testo",
+        "ja": "テキストアラインメント",
+        "ko": "텍스트 정렬",
+        "nb": "Tekstjustering",
+        "nl": "Tekstuitlijning",
+        "pl": "Wyrównanie tekstu",
+        "pt-BR": "Alinhamento de texto",
+        "pt-PT": "Alinhamento de texto",
+        "sv": "Textjustering",
+        "th": "การจัดตำแหน่งข้อความ",
+        "tr": "Metin hizalaması",
+        "vi": "Căn chỉnh văn bản",
+        "zh-CN": "文本对齐方式",
+        "zh-TW": "文字對齊"
+      },
+      "options": [
+        {
+          "value": "left",
+          "label": {
+            "cs": "Doleva",
+            "da": "Venstre",
+            "de": "Links",
+            "en": "Left",
+            "es": "Izquierda",
+            "fi": "Vasen",
+            "fr": "Gauche",
+            "it": "Sinistra",
+            "ja": "左",
+            "ko": "왼쪽",
+            "nb": "Venstre",
+            "nl": "Links",
+            "pl": "Do lewej",
+            "pt-BR": "Esquerda",
+            "pt-PT": "Esquerda",
+            "sv": "Vänster",
+            "th": "ด้านซ้าย",
+            "tr": "Sol",
+            "vi": "Bên trái",
+            "zh-CN": "左侧",
+            "zh-TW": "左方"
+          }
+        }, {
+          "value": "center",
+          "label": {
+            "cs": "Na střed",
+            "da": "Centreret",
+            "de": "Mitte",
+            "en": "Center",
+            "es": "Centrar",
+            "fi": "Keskitetty",
+            "fr": "Centre",
+            "it": "Al centro",
+            "ja": "中央",
+            "ko": "센터",
+            "nb": "Sentrer",
+            "nl": "Midden",
+            "pl": "Do środka",
+            "pt-BR": "Centro",
+            "pt-PT": "Centro",
+            "sv": "Centrera",
+            "th": "ตรงกลาง",
+            "tr": "Orta",
+            "vi": "Ở giữa",
+            "zh-CN": "居中",
+            "zh-TW": "置中"
+          }
+        }, {
+          "value": "right",
+          "label": {
+            "cs": "Doprava",
+            "da": "Højre",
+            "de": "Rechts",
+            "en": "Right",
+            "es": "Derecha",
+            "fi": "Oikea",
+            "fr": "Droite",
+            "it": "Destra",
+            "ja": "右",
+            "ko": "오른쪽",
+            "nb": "Høyre",
+            "nl": "Rechts",
+            "pl": "Do prawej",
+            "pt-BR": "Direita",
+            "pt-PT": "Direita",
+            "sv": "Höger",
+            "th": "ด้านขวา",
+            "tr": "Sağ",
+            "vi": "Bên phải",
+            "zh-CN": "右侧",
+            "zh-TW": "右方"
+          }
+        }
+      ],
+      "default": "center"
+    }, {
       "type": "text",
       "id": "subtitle",
       "label": "Subtitle",
@@ -317,7 +422,7 @@
         "zh-CN": "按钮标签",
         "zh-TW": "按鈕標籤"
       }
-    },{
+    }, {
       "type": "html",
       "id": "html_content",
       "label": "Contenido HTML",

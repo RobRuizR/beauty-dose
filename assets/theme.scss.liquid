@@ -431,6 +431,11 @@ $color-blankstate-background: rgba($colorTextBody, 0.10);
   src: url("{{ 'proxima-reg.otf' | asset_url }}") format("opentype");
 }
 
+@font-face {
+  font-family: "Karl Geoff";
+  src: url("{{ 'karl-geoff-personal.ttf' | asset_url }}") format("truetype");
+}
+
 {%- assign accent_family = settings.type_accent_family -%}
 {%- assign base_family = settings.type_base_family -%}
 {%- assign header_family = settings.type_header_family -%}
@@ -4823,6 +4828,10 @@ $disclosure-list-large: 1100px;
   text-align: center;
 }
 
+.text-center {
+  text-align: right;
+}
+
 .flex-start {
   align-items: flex-start;
 }
@@ -5480,6 +5489,10 @@ input.invisible-option.face-option:checked + label > div {
   margin: 0;
 }
 
+.no-margin-children.no-margin-children.no-margin-children > * {
+  margin: 0;
+}
+
 .fill-wine {
   fill: #A01450;
 }
@@ -5550,4 +5563,16 @@ input.invisible-option.face-option:checked + label > div {
 
 .font-body.font-body {
   font-family: $bodyFontStack;
+}
+
+.font-fancy {
+  font-family: "Karl Geoff", $bodyFontStack;
+}
+
+.font-small {
+  font-size: 0.8em;
+}
+
+.no-text-transform.no-text-transform {
+  text-transform: none;
 }

@@ -111,22 +111,20 @@
               <div class="hero__text-content" data-hero-text-content>
                 {%- unless block.settings.slide_heading == blank -%}
 
-                  <div class="large-width-40pc {{ textMarginClass }}" style="color: {{block.settings.slide_text_color}}">
-                    <h2 class="hero__title h1">
-                      {{ block.settings.slide_heading | escape }}
+                  <div class=" {{ textMarginClass }}" style="color: {{block.settings.slide_text_color}}">
+                    <h2 class="hero__title h1 no-margin-children">
+                      {{ block.settings.slide_heading }}
                     </h2>
                   </div>
                 {%- endunless -%}
                 {%- unless block.settings.slide_subheading == blank -%}
-                  <div class="large-width-40pc {{ textMarginClass }}" style="color: {{block.settings.slide_text_color}}">
-                    <p class="hero__subtitle font-body">
-                      {{ block.settings.slide_subheading | escape }}
-                    </p>
+                  <div class="hero__subtitle font-body no-margin-children {{ textMarginClass }}" style="color: {{block.settings.slide_text_color}}">
+                    {{ block.settings.slide_subheading }}
                   </div>
                 {%- endunless -%}
                 {%- if block.settings.button_label != blank and block.settings.button_link != blank -%}
                   <div class="{{ buttonAlignmentClass }}">
-                    <a href="{{ block.settings.button_link }}" style="color: {{ block.settings.slide_button_label_color }}; background-color: {{ block.settings.slide_button_background_color }}" class="btn hero__cta button-stretch">
+                    <a href="{{ block.settings.button_link }}" style="color: {{ block.settings.slide_button_label_color }}; background-color: {{ block.settings.slide_button_background_color }}" class="btn no-text-transform hero__cta button-stretch">
                       {{ block.settings.button_label | escape }}
                     </a>
                   </div>
@@ -166,24 +164,21 @@
       <div class="hero__adapt-text-wrap wrapper" data-hero-adapt-text-wrap>
 
         {%- for block in section.blocks -%}
-          <div class="hero__text-content hero__text-content--adapt large-width-40pc" data-index="{{ forloop.index0 }}" data-hero-text-content>
+          <div class="hero__text-content hero__text-content--adapt " data-index="{{ forloop.index0 }}" data-hero-text-content>
             {%- unless block.settings.slide_subheading == blank -%}
-              <div class="{{textMarginClass}}">
-
-                <p class="hero__subtitle font-body">
-                  {{ block.settings.slide_subheading | escape }}
-                </p>
+              <div class="{{textMarginClass}} hero__subtitle font-body no-margin-children">
+                {{ block.settings.slide_subheading }}
               </div>
             {%- endunless -%}
             {%- unless block.settings.slide_heading == blank -%}
-              <div class="large-width-40pc {{ textMarginClass }}">
-                <h2 class="hero__title h1">
-                  {{ block.settings.slide_heading | escape }}
+              <div class=" {{ textMarginClass }}">
+                <h2 class="hero__title h1 no-margin-children">
+                  {{ block.settings.slide_heading }}
                 </h2>
               </div>
             {%- endunless -%}
             {%- if block.settings.button_label != blank and block.settings.button_link != blank -%}
-              <a href="{{ block.settings.button_link }}" class="hero__cta btn">
+              <a href="{{ block.settings.button_link }}" class="hero__cta no-text-transform btn">
                 {{ block.settings.button_label | escape }}
               </a>
             {%- endif -%}
@@ -988,7 +983,7 @@
           ],
           "default": "center"
         }, {
-          "type": "text",
+          "type": "richtext",
           "id": "slide_heading",
           "label": {
             "cs": "Nadpis",
@@ -1014,30 +1009,30 @@
             "zh-TW": "標題"
           },
           "default": {
-            "cs": "Hlavní banner",
-            "da": "Forgrundsbanner",
-            "de": "Hero-Banner",
-            "en": "Hero Banner",
-            "es": "Banner destacado",
-            "fi": "Hero Banner",
-            "fr": "Bannière de premier plan",
-            "it": "Banner hero",
-            "ja": "ヒーローバナー",
-            "ko": "히어로 배너",
-            "nb": "Hero-banner",
-            "nl": "Hero banner",
-            "pl": "Baner główny",
-            "pt-BR": "Banner principal",
-            "pt-PT": "Faixa do Hero",
-            "sv": "Hero Banner",
-            "th": "แบนเนอร์หลัก",
-            "tr": "Ana Banner",
-            "vi": "mở đầu",
-            "zh-CN": "主横幅",
-            "zh-TW": "主頁橫幅"
+            "cs": "<p>Hlavní banner</p>",
+            "da": "<p>Forgrundsbanner</p>",
+            "de": "<p>Hero-Banner</p>",
+            "en": "<p>Hero Banner</p>",
+            "es": "<p>Banner destacado</p>",
+            "fi": "<p>Hero Banner</p>",
+            "fr": "<p>Bannière de premier plan</p>",
+            "it": "<p>Banner hero</p>",
+            "ja": "<p>ヒーローバナー</p>",
+            "ko": "<p>히어로 배너</p>",
+            "nb": "<p>Hero-banner</p>",
+            "nl": "<p>Hero banner</p>",
+            "pl": "<p>Baner główny</p>",
+            "pt-BR": "<p>Banner principal</p>",
+            "pt-PT": "<p>Faixa do Hero</p>",
+            "sv": "<p>Hero Banner</p>",
+            "th": "<p>แบนเนอร์หลัก</p>",
+            "tr": "<p>Ana Banner</p>",
+            "vi": "<p>mở đầu</p>",
+            "zh-CN": "<p>主横幅</p>",
+            "zh-TW": "<p>主頁橫幅</p>"
           }
         }, {
-          "type": "text",
+          "type": "richtext",
           "id": "slide_subheading",
           "label": {
             "cs": "Podnadpis",
@@ -1063,27 +1058,27 @@
             "zh-TW": "子標題"
           },
           "default": {
-            "cs": "Úvod",
-            "da": "Introduktion",
-            "de": "Für den Einstieg:",
-            "en": "An introductory",
-            "es": "Frase introductoria",
-            "fi": "Aloittaminen",
-            "fr": "Introduction",
-            "it": "Come introduzione",
-            "ja": "紹介",
-            "ko": "소개",
-            "nb": "En introduksjon",
-            "nl": "Een inleiding",
-            "pl": "Wprowadzenie",
-            "pt-BR": "Uma introdução",
-            "pt-PT": "Uma introdução",
-            "sv": "En introduktion",
-            "th": "การเกริ่นนำ",
-            "tr": "Giriş",
-            "vi": "Một Biểu ngữ chủ đạo",
-            "zh-CN": "介绍性的",
-            "zh-TW": "首次優惠"
+            "cs": "<p>Úvod</p>",
+            "da": "<p>Introduktion</p>",
+            "de": "<p>Für den Einstieg</p>",
+            "en": "<p>An introductory</p>",
+            "es": "<p>Frase introductoria</p>",
+            "fi": "<p>Aloittaminen</p>",
+            "fr": "<p>Introduction</p>",
+            "it": "<p>Come introduzione</p>",
+            "ja": "<p>紹介</p>",
+            "ko": "<p>소개</p>",
+            "nb": "<p>En introduksjon</p>",
+            "nl": "<p>Een inleiding</p>",
+            "pl": "<p>Wprowadzenie</p>",
+            "pt-BR": "<p>Uma introdução</p>",
+            "pt-PT": "<p>Uma introdução</p>",
+            "sv": "<p>En introduktion</p>",
+            "th": "<p>การเกริ่นนำ</p>",
+            "tr": "<p>Giriş</p>",
+            "vi": "<p>Một Biểu ngữ chủ đạo</p>",
+            "zh-CN": "<p>介绍性的</p>",
+            "zh-TW": "<p>首次優惠</p>"
           }
         }, {
           "type": "text",
