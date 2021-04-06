@@ -1,5 +1,5 @@
-<div class="background-image height-100vh large-height-80vh" style="background-color: #fbe7d9;">
-    <div class="wrapper position-relative padding-horizontal-xsmall large-width-60pc flex full-height flex-column justify-center padding-vertical-medium">
+<div class="background-image position-relative large-height-80vh" style="background-color: #fbe7d9;">
+    <div class="wrapper position-relative padding-horizontal-xsmall flex full-height flex-column justify-center padding-vertical-medium">
         <div class="color-main text-center bold">
             {{ section.settings.subtitle | escape }}
         </div>
@@ -9,6 +9,10 @@
         <div class="text-center">
             {{ section.settings.content }}
         </div>
+    </div>
+    <div class="padding-bottom-small margin-horizontal-auto" style="max-width: 1050px;">
+        {% assign image_url = "about_svg.png" | asset_url  %}
+        <img src="{{image_url}}" aria-hidden>
     </div>
 </div>
 
