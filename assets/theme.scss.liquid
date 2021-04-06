@@ -4908,6 +4908,7 @@ $disclosure-list-large: 1100px;
   padding-bottom: $marginMedium;
 }
 
+
 .margin-vertical-small {
   margin-top: $marginSmall;
   margin-bottom: $marginSmall;
@@ -5058,9 +5059,10 @@ $shadow: 0px 3px 6px rgba(0, 0, 0, .29);
   margin-bottom: $marginXsmall;
 }
 
-.medium-margin-xsmall-bottom {
-  @include at-query($max, $medium) {
-    margin-bottom: $marginXsmall;
+.medium-margin-vertical-none {
+  @include at-query($min, $medium) {
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 
@@ -5472,9 +5474,20 @@ input.invisible-option.face-option:checked + label > div {
 .border-pink {
   border: 1px solid #F9E3DF;
 }
+
 .margin-horizontal-auto {
-  margin-left: auto;
   margin-right: auto;
+  margin-left: auto;
+}
+
+.margin-horizontal-xsmall {
+  margin-right: $marginXsmall;
+  margin-left: $marginXsmall;
+}
+
+.margin-horizontal-small {
+  margin-right: $marginSmall;
+  margin-left: $marginSmall;
 }
 
 .margin-left-auto {
@@ -5504,8 +5517,6 @@ input.invisible-option.face-option:checked + label > div {
 .transform-half-up {
   transform: translateY(-50%);
 }
-
-
 
 .medium-top-50 {
   @include at-query($min, $medium) {
@@ -5570,9 +5581,19 @@ input.invisible-option.face-option:checked + label > div {
 }
 
 .font-small {
-  font-size: 0.8em;
+  font-size: 0.9em;
 }
 
 .no-text-transform.no-text-transform {
   text-transform: none;
 }
+
+.enjoy-line-gap {
+  border-bottom: 1px solid #F0D9C7;
+
+  @include at-query($min, $medium) {
+    border-bottom: none;
+    border-right: 1px solid #F0D9C7;
+  }
+}
+

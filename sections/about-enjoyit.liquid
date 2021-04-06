@@ -1,0 +1,89 @@
+{% stylesheet %}
+    .enjoy-subtitle.enjoy-subtitle.enjoy-subtitle.enjoy-subtitle {
+        color: #D6514D;
+    }
+{% endstylesheet %}
+<div class="background-image" style="background-color: white;">
+    <div class="wrapper position-relative full-height flex flex-column justify-center padding-vertical-medium padding-horizontal-small">
+        <h2 class="h2 text-center no-margin padding-bottom-small padding-horizontal-small">
+            {{ section.settings.title | escape }}
+        </h2>
+        <div class="flex medium-row-responsive">
+            <div class="flex flex-column flex-1">
+                <div class="text-center padding-bottom-small enjoy-subtitle h4 no-margin">
+                    {{ section.settings.subtitle1 }}
+                </div>
+                <div class="text-center font-small">
+                    {{ section.settings.subtext1 }}
+                </div>
+            </div>
+            <div class="enjoy-line-gap margin-vertical-small margin-horizontal-small medium-margin-vertical-none"></div>
+            <div class="flex flex-column flex-1">
+                <div class="text-center padding-bottom-small enjoy-subtitle h4 no-margin">
+                    {{ section.settings.subtitle2 }}
+                </div>
+                <div class="text-center font-small">
+                    {{ section.settings.subtext2 }}
+                </div>
+            </div>
+            <div class="enjoy-line-gap margin-vertical-small margin-horizontal-small medium-margin-vertical-none"></div>
+            <div class="flex flex-column flex-1">
+                <div class="text-center padding-bottom-small enjoy-subtitle h4 no-margin">
+                    {{ section.settings.subtitle3 }}
+                </div>
+                <div class="text-center font-small">
+                    {{ section.settings.subtext3 }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+
+{
+    "name": "Enjoy it",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Título",
+            "default": "Enjoy it, it's your time"
+        }, {
+            "type": "text",
+            "id": "subtitle1",
+            "label": "Subtítulo 1",
+            "default": "Invest in yourself"
+        }, {
+            "type": "textarea",
+            "id": "subtext1",
+            "label": "Subtexto 1"
+        }, {
+            "type": "text",
+            "id": "subtitle2",
+            "label": "Subtítulo 2",
+            "default": "Me time"
+        }, {
+            "type": "textarea",
+            "id": "subtext2",
+            "label": "Subtexto 2"
+        }, {
+            "type": "text",
+            "id": "subtitle3",
+            "label": "Subtítulo 3",
+            "default": "You are beautiful"
+        }, {
+            "type": "textarea",
+            "id": "subtext3",
+            "label": "Subtexto 3"
+        } 
+    ],
+    "presets": [
+        {
+            "name": "Enjoy it",
+            "category": "Description"
+        }
+    ]
+}
+
+{% endschema %}
