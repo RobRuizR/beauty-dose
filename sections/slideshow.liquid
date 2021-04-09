@@ -55,7 +55,22 @@
   fill: {{block.settings.slide_text_color}};
 }
 #HeroWrapper-{{section.id}}.slide--{{block.id}}.hero__text-wrap {
-  text-align: {{block.settings.text_alignment}}}
+  text-align: {{block.settings.text_alignment}}
+}
+
+.hero__container--{{ block.id }} {
+  width: {{block.settings.slide_width}}%;
+
+
+
+  {% if block.settings.text_alignment != "left" %}
+    margin-left: auto;
+  {% endif %}
+  {% if block.settings.text_alignment != "right" %}
+    margin-right: auto;
+  {% endif %}
+} 
+
 
 {%- endstyle -%}
         {%- comment -%}
@@ -106,19 +121,21 @@
             {% assign buttonAlignmentClass = "flex justify-end" %}
           {% endif %}
 
+          {% capture colored_dot %}<span style="color: {{ block.settings.slide_button_background_color }};">.</span>{% endcapture %}
+
           <div class="hero__text-wrap{% if block.settings.image_overlay %} slideshow__overlay{% endif %}">
             <div class="hero__text-align wrapper">
               <div class="hero__text-content" data-hero-text-content>
                 {%- unless block.settings.slide_heading == blank -%}
-
+                  {% assign replaced_heading = block.settings.slide_heading | replace: ".", colored_dot  %}
                   <div class=" {{ textMarginClass }}" style="color: {{block.settings.slide_text_color}}">
-                    <h2 class="hero__title h1 no-margin-children">
-                      {{ block.settings.slide_heading }}
+                    <h2 class="hero__title h1 no-margin-children hero__container--{{ block.id }}">
+                      {{ replaced_heading }}
                     </h2>
                   </div>
                 {%- endunless -%}
                 {%- unless block.settings.slide_subheading == blank -%}
-                  <div class="hero__subtitle font-body no-margin-children {{ textMarginClass }}" style="color: {{block.settings.slide_text_color}}">
+                  <div class="hero__subtitle font-body no-margin-children hero__container--{{ block.id }} {{ textMarginClass }}" style="color: {{block.settings.slide_text_color}}">
                     {{ block.settings.slide_subheading }}
                   </div>
                 {%- endunless -%}
@@ -852,6 +869,15 @@
             "zh-TW": "%"
           },
           "default": 25
+        },{
+          "type": "range",
+          "id": "slide_width",
+          "label": "Ancho de contenedor de texto",
+          "unit": "%",
+          "min": 30,
+          "max": 100,
+          "step": 1,
+          "default": 100
         }, {
           "type": "header",
           "content": {
