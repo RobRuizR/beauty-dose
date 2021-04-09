@@ -1,0 +1,96 @@
+{% style %}
+
+.container-bg-image-{{section.id}} {
+  background-image: url("{{section.settings.bg_image | img_url: '2048x'}}");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.button-{{section.id}}.button-{{section.id}} {
+  background-color: {{section.settings.button_color}};
+  color: {{section.settings.button_text_color}};
+  border-radius: 6px;
+  margin-right: auto;
+}
+
+.title-{{ section_id }} {
+  line-height: 0.55em;
+  font-size: 36vw;
+}
+
+.span-a-{{ section_id }} {
+  left: 18vw;
+}
+
+@media screen and (min-width: 580px) {
+  .title-{{ section_id }} {
+    font-size: 10rem;
+    position: relative;
+    left: -3vw;
+  } 
+
+  .span-a-{{ section_id }} {
+    left: 5rem;
+  }
+}
+{% endstyle %}
+
+<div class="container-bg-image-{{section.id}} full-width">
+  <div class="wrapper">
+    <div class="flex flex-column padding-horizontal-small medium-padding-horizontal-none padding-vertical-small">
+      <div class="padding-vertical-medium small-display-none"></div>
+      <div class="font-fancy color-white title-{{ section_id }} padding-vertical-xsmall">
+        <div class="">Amor</div>
+        <div class=""><span class="position-relative span-a-{{ section_id }}">a</span> México</div>
+      </div>
+      <div class="color-white padding-bottom-xsmall" style="max-width: 500px;">
+        {{ section.settings.subtext }}
+      </div>
+      <a class="btn padding-horizontal-medium no-text-transform button-{{section.id}} padding-" href="{{ section.settings.button_url }}">
+        {{ section.settings.button_content }}
+      </a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+
+{
+  "name": "Amor a México",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Imagen de fondo"
+    }, {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Texto inferior"
+    }, {
+      "type": "text",
+      "id": "button_content",
+      "label": "Contenido de botón"
+    },{
+      "type": "url",
+      "id": "button_url",
+      "label": "URL de botón"
+    }, {
+      "type": "color",
+      "id": "button_color",
+      "label": "Color de botón"
+    }, {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Color de texto de botón"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Amor a México",
+      "category": "Image"
+    }
+  ]
+}
+
+{% endschema %}

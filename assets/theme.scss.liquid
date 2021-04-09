@@ -4966,6 +4966,13 @@ $disclosure-list-large: 1100px;
   padding-right: $marginXsmall;
 }
 
+.medium-padding-horizontal-none {
+  @include at-query($max, $medium) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 .medium-padding-horizontal-xsmall {
   @include at-query($max, $medium) {
     padding-left: $marginXsmall;
@@ -5597,3 +5604,8 @@ input.invisible-option.face-option:checked + label > div {
   }
 }
 
+.small-display-none {
+  @include at-query($max, $medium) {
+    display: none;
+  }
+}
